@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-const testPhrase = "Hello World!";
+const testPhrase = "Hello World! This is a test";
 
 ReactDOM.render(
   <div>{testPhrase}</div>,

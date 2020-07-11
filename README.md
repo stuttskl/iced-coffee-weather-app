@@ -16,7 +16,7 @@ git clone https://github.com/stuttskl/iced-coffee-weather-app
 
 After that, run this sequence of commands to get everything set up:
 ```
-cd iced-coffee-weather-app/app
+cd iced-coffee-weather-app
 npm install
 npm run build
 ```
