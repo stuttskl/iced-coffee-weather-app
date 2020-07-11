@@ -5,3 +5,5 @@ bundle.js
 
 # Shows up on macs
 .DS_Store
+
+package-lock.json
