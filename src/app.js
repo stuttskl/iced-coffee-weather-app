@@ -1,8 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Main from './Components/main';
+
 const testPhrase = "Hello World! This is a test";
 
-ReactDOM.render(
-  <div>{testPhrase}</div>,
-  document.getElementById('app')
-);
+ReactDOM.render(<Main />, document.getElementById('app'));
