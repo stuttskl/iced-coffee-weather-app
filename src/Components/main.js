@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from '@material-ui/core/Button';
 
 class Main extends React.Component {
     constructor(props) {
@@ -15,6 +16,9 @@ class Main extends React.Component {
         return (
             <div>
                 <h1>Welcome to Weather Roasted</h1>
+                <Button variant="contained" color="primary">
+                    Hello World
+                 </Button>
             </div>
         )
     }
