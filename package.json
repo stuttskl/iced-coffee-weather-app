@@ -4,6 +4,7 @@
   "description": "A simple Express server app that serves a simple React app",
   "main": "server.js",
   "dependencies": {
+    "@material-ui/core": "^4.11.0",
     "express": "^4.17.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
