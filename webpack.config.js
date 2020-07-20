@@ -27,6 +27,7 @@ module.exports = {
     ],
     devServer: {
         hot: true,
+        publicPath: "/src",
         historyApiFallback: true
     }
 };
