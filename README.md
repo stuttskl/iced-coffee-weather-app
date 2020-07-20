@@ -28,6 +28,14 @@ npm run simple-run
 And navigate to `localhost:3000` in your web browser to view the page.
 At any time, you can terminate the server in the terminal with Ctrl+c
 
+If you'd like to specify the port number, you can do so with:
+``` 
+node server.js PORT_NUM_HERE
+```
+
+If you do not specify a port number, it will default to port 3000
+
+
 ### Wait, but I want to start the server and watch for changes!
 In that case, we'll run a script that uses nodemon for the back end, and webpack with `--watch` used on the front end:
 
