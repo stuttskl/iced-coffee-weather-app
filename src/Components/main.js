@@ -37,11 +37,23 @@ export class Main extends React.Component {
             city: "Corvallis",
             country: "USA"
         };
+        this.handleDebugClick = this.handleDebugClick.bind(this);
     }
 
-    handleDebugClick(e) {
+    // Kind of temporary, for debug purposes and to demonstrate the location feature.
+    async handleDebugClick(e) {
         e.preventDefault();
-        getLocation();
+        let result;
+        result = await getLocation();
+        if (result.success) {
+            this.setState({
+                city: result.city,
+                country: result.country
+            });
+        }
+        else {
+            console.log("DEBUG: Could not find your location.");
+        }
     }
 
     render() {
