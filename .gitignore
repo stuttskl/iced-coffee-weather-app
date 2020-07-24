@@ -7,3 +7,6 @@ bundle.js
 .DS_Store
 
 package-lock.json
+
+# api keys
+.env
