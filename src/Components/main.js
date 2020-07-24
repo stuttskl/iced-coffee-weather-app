@@ -56,6 +56,11 @@ export class Main extends React.Component {
         }
     }
 
+    async handleAPIClick(e) {
+        e.preventDefault();
+        console.log("IM CLICKED")
+    }
+
     render() {
         return (
             <div id="main-view">
@@ -66,6 +71,9 @@ export class Main extends React.Component {
                 />
                 <Button variant="contained" color="primary" onClick={this.handleDebugClick}>
                     Debug - Get Location
+                </Button>
+                <Button variant="contained" color="primary" onClick={this.handleAPIClick}>
+                    Debug - Make API Request
                 </Button>
             </div>
         );
