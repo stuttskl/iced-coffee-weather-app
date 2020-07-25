@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require('body-parser');
-const apiRoutes = require("./routes/APIcall")
+const apiRoutes = require("./routes/APIcall");
+require('dotenv').config();
 const DEFAULT_PORT = 3000;
 let portNumber  = DEFAULT_PORT;
 let app = express();
