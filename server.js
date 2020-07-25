@@ -1,5 +1,6 @@
 const express = require("express");
 const bodyParser = require('body-parser');
+const apiRoutes = require("./routes/APIcall")
 const DEFAULT_PORT = 3000;
 let portNumber  = DEFAULT_PORT;
 let app = express();
@@ -7,6 +8,7 @@ let app = express();
 app.use(express.static('public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use("/weather", apiRoutes);
 
 if (process.argv.length > 2 && process.argv[2]) {
   portNumber = process.argv[2];
