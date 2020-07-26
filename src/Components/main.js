@@ -7,6 +7,7 @@ import Typography from '@material-ui/core/Typography';
 import { CurrentConditions } from './CurrentConditions/CurrentConditions';
 import { mainStyles } from '../styles/styles';
 import { getLocation } from '../location/getLocation';
+// import { getWeather } from '../../routes/APIcall';
 
 /* One way of styling with Material UI is to use hooks.
    However, these only work inside functions, so we can't have this with
@@ -40,6 +41,12 @@ export class Main extends React.Component {
         this.handleDebugClick = this.handleDebugClick.bind(this);
     }
 
+    componentDidMount() {
+        fetch("https://api.openweathermap.org/data/2.5/weather?q=Seattle&appid=f3051cce7c3b2c76d97118c99faf5ae1")
+            .then(resp => resp.json())
+            .then(data => console.log(data)); 
+    }
+
     // Kind of temporary, for debug purposes and to demonstrate the location feature.
     async handleDebugClick(e) {
         e.preventDefault();
@@ -56,13 +63,14 @@ export class Main extends React.Component {
         }
     }
 
-    async handleAPIClick(e) {
-        e.preventDefault();
-        console.log("IM CLICKED")
-        // let response = await getWeather();
-        // console.log(response);
-        // console.log(response.data);
-    }
+    // async handleAPIClick(e) {
+    //     e.preventDefault();
+    //     console.log("IM CLICKED")
+    //     this.getWeather();
+    //     // let response = await getWeather();
+    //     // console.log(response);
+    //     // console.log(response.data);
+    // }
 
     render() {
         return (
@@ -75,7 +83,7 @@ export class Main extends React.Component {
                 <Button variant="contained" color="primary" onClick={this.handleDebugClick}>
                     Debug - Get Location
                 </Button>
-                <Button variant="contained" color="primary" onClick={this.handleAPIClick}>
+                <Button variant="contained" color="primary" onClick={this.getWeather}>
                     Debug - Make API Request
                 </Button>
             </div>
