@@ -8,6 +8,7 @@ import { CurrentConditions } from './CurrentConditions/CurrentConditions';
 import { mainStyles } from '../styles/styles';
 import { getLocation } from '../location/getLocation';
 import { HourGraph } from './Graphs/Hourgraph';
+import { ForecastGraph } from './Graphs/Forecastgraph';
 
 /* One way of styling with Material UI is to use hooks.
    However, these only work inside functions, so we can't have this with
@@ -66,6 +67,7 @@ export class Main extends React.Component {
                     country={this.state.country}
                 />
                 <HourGraph />
+                <ForecastGraph />
                 <Button variant="contained" color="primary" onClick={this.handleDebugClick}>
                     Debug - Get Location
                 </Button>
