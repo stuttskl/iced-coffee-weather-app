@@ -59,6 +59,9 @@ export class Main extends React.Component {
     async handleAPIClick(e) {
         e.preventDefault();
         console.log("IM CLICKED")
+        // let response = await getWeather();
+        // console.log(response);
+        // console.log(response.data);
     }
 
     render() {
