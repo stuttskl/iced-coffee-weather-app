@@ -15,6 +15,7 @@ export class CurrentConditions extends React.Component {
         <Typography variant="h3">
           Current conditions for {this.props.city}, {this.props.country}:
         </Typography>
+        <p>Temperature in {this.props.city} is: {this.props.temperature}</p>
       </div>
     );
   }

@@ -7,9 +7,6 @@ import Typography from '@material-ui/core/Typography';
 import { CurrentConditions } from './CurrentConditions/CurrentConditions';
 import { mainStyles } from '../styles/styles';
 import { getLocation } from '../location/getLocation';
-// import { getWeather } from '../../routes/APIcall';
-// import axios from 'axios';
-
 
 /* One way of styling with Material UI is to use hooks.
    However, these only work inside functions, so we can't have this with
@@ -41,6 +38,7 @@ export class Main extends React.Component {
             country: "USA"
         };
         this.handleDebugClick = this.handleDebugClick.bind(this);
+        this.handleAPIClick = this.handleAPIClick.bind(this);
     }
 
     // Kind of temporary, for debug purposes and to demonstrate the location feature.
@@ -59,11 +57,17 @@ export class Main extends React.Component {
         }
     }
 
-    // async handleAPIClick(e) {
-    //     e.preventDefault();
-        
-    // }
-
+    handleAPIClick(e) {
+        e.preventDefault(e)
+        fetch('/weather')
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(data) {
+                console.log(JSON.stringify(data));
+                alert('API Call initiated! Check your console!')
+            });
+    }
 
     render() {
         return (
@@ -77,7 +81,7 @@ export class Main extends React.Component {
                 <Button variant="contained" color="primary" onClick={this.handleDebugClick}>
                     Debug - Get Location
                 </Button>
-                <Button variant="contained" color="primary" onClick={this.handleDebugClick}>
+                <Button variant="contained" color="primary" onClick={this.handleAPIClick}>
                     Debug - Make API Call
                 </Button>
             </div>
