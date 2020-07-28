@@ -9,6 +9,7 @@ import { mainStyles } from '../styles/styles';
 import { getLocation } from '../location/getLocation';
 import { HourGraph } from './Graphs/Hourgraph';
 import { ForecastGraph } from './Graphs/Forecastgraph';
+import { WeatherDisplay} from './WeatherDisplay/Weatherdisplay';
 
 /* One way of styling with Material UI is to use hooks.
    However, these only work inside functions, so we can't have this with
@@ -88,7 +89,13 @@ export class Main extends React.Component {
                 <Button variant="contained" color="primary" onClick={this.handleAPIClick}>
                     Debug - Make API Call
                 </Button>
+                <WeatherDisplay 
+                    temperature = {this.state.temperature}
+                    humidity = {this.state.humidity}
+                    uvIndex = {this.state.uvIndex}
+                />          
             </div>
         );
     }
+    
 };
