@@ -9,7 +9,7 @@ import { mainStyles } from '../styles/styles';
 import { getLocation } from '../location/getLocation';
 import { HourGraph } from './Graphs/Hourgraph';
 import { ForecastGraph } from './Graphs/Forecastgraph';
-import { WeatherDisplay} from './WeatherDisplay/Weatherdisplay';
+import { WeatherDisplay} from './WeatherDisplay/WeatherDisplay';
 
 /* One way of styling with Material UI is to use hooks.
    However, these only work inside functions, so we can't have this with
