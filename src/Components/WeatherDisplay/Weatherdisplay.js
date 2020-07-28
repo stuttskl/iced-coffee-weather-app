@@ -1,28 +1,7 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import Card from '@material-ui/core/Card';
-import { makeStyles } from '@material-ui/core/styles';
 import { CardContent } from '@material-ui/core';
-
-import sun from './WeatherDisplay';
-
-/*
-const styles = makeStyles({
-  root: {
-    minWidth: 300,
-  },
-  fontsize: {
-    fontsize: 14,
-  },
-});
-*/
-
-/*
-function WeatherIcon(peops){
-  let Icon
-  Icon = sun 
-}
-*/
 
 export class WeatherDisplay extends React.Component{
   constructor(props){
@@ -59,27 +38,3 @@ export class WeatherDisplay extends React.Component{
     );
   }
 };
-
-/*
-const WeatherCard = function() {
-  const classes = useStyles();
-      
-  return (
-    <Card className={classes.root} variant="outlined">
-      <CardContent>
-  <Typography variant="h3" component="h2">
-    50
-  </Typography>
-  <Typography className = {classes.fontsize} color="textSecondary">
-    Humidity: 60
-  </Typography>
-  <Typography className={classes.fontsize} color="textSecondary" gutterBottom>
-    UN Index: 10
-  </Typography>
-      </CardContent>
-    </Card>
-  );
-};
-
-export default WeatherCard;
-*/
