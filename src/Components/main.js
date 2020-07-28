@@ -40,6 +40,7 @@ export class Main extends React.Component {
             country: "USA"
         };
         this.handleDebugClick = this.handleDebugClick.bind(this);
+        this.handleAPIClick = this.handleAPIClick.bind(this);
     }
 
     // Kind of temporary, for debug purposes and to demonstrate the location feature.
@@ -58,6 +59,18 @@ export class Main extends React.Component {
         }
     }
 
+    handleAPIClick(e) {
+        e.preventDefault(e)
+        fetch('/weather')
+            .then(function(response) {
+                return response.json();
+            })
+            .then(function(data) {
+                console.log(JSON.stringify(data));
+                alert('API Call initiated! Check your console!')
+            });
+    }
+
     render() {
         return (
             <div id="main-view">
@@ -65,11 +78,15 @@ export class Main extends React.Component {
                 <CurrentConditions 
                     city={this.state.city}
                     country={this.state.country}
+                    temperature={this.state.temperature}
                 />
                 <HourGraph />
                 <ForecastGraph />
                 <Button variant="contained" color="primary" onClick={this.handleDebugClick}>
                     Debug - Get Location
+                </Button>
+                <Button variant="contained" color="primary" onClick={this.handleAPIClick}>
+                    Debug - Make API Call
                 </Button>
             </div>
         );
