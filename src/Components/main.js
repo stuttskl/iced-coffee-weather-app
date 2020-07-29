@@ -4,12 +4,11 @@ import React from 'react';
 import Typography from '@material-ui/core/Typography';
 
 // Dependencies created by our group
-import { CurrentConditions } from './CurrentConditions/CurrentConditions';
 import { mainStyles } from '../styles/styles';
 import { getLocation } from '../location/getLocation';
 import { HourGraph } from './Graphs/Hourgraph';
 import { ForecastGraph } from './Graphs/Forecastgraph';
-import { WeatherDisplay} from './WeatherDisplay/WeatherDisplay';
+import { CurrentWeatherDisplay} from './CurrentWeatherDisplay/CurrentWeatherDisplay';
 
 /* One way of styling with Material UI is to use hooks.
    However, these only work inside functions, so we can't have this with
@@ -76,11 +75,6 @@ export class Main extends React.Component {
         return (
             <div id="main-view">
                 <HeaderHook />
-                <CurrentConditions 
-                    city={this.state.city}
-                    country={this.state.country}
-                    temperature={this.state.temperature}
-                />
                 <HourGraph />
                 <ForecastGraph />
                 <Button variant="contained" color="primary" onClick={this.handleDebugClick}>
@@ -89,8 +83,10 @@ export class Main extends React.Component {
                 <Button variant="contained" color="primary" onClick={this.handleAPIClick}>
                     Debug - Make API Call
                 </Button>
-                <WeatherDisplay 
-                    temperature = {this.state.temperature}
+                <CurrentWeatherDisplay 
+                    city={this.state.city}
+                    country={this.state.country}
+                    temperature={this.state.temperature}
                     humidity = {this.state.humidity}
                     uvIndex = {this.state.uvIndex}
                 />          
