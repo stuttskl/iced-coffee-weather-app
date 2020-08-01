@@ -25,14 +25,13 @@ export class CurrentWeatherDisplay extends React.Component{
           <Typography variant="h3">
             Current conditions for {this.props.city}, {this.props.country}:
           </Typography>
-          <p>Temperature in {this.props.city} is: {this.props.temperature}</p>
         </div>
         <div id = "weatherdisplay">
           <Card>
             <CardContent>
               <Grid>
                 <Typography variant="h3">
-                  {this.state.temperature}
+                  {((this.props.temperature - 273.15) * 1.8 + 32).toFixed(2)} °F
                 </Typography>
                 <img src={sun} alt="Icon"></img>
               </Grid>

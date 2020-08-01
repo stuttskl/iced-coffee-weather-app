@@ -32,12 +32,15 @@ export class Main extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            latitude,
             temperature: 50,
             uvIndex: 10,
             humidity: 60,
             windSpeed: 12,
             city: "Corvallis",
-            country: "USA"
+            country: "USA",
+            hourlyData: {},
+            units: "F"
         };
         this.handleDebugClick = this.handleDebugClick.bind(this);
         this.handleAPIClick = this.handleAPIClick.bind(this);
@@ -49,9 +52,11 @@ export class Main extends React.Component {
         let result;
         result = await getLocation();
         if (result.success) {
+            console.log(result);
             this.setState({
-                city: result.city,
-                country: result.country
+                city: result.name,
+                country: result.sys.country,
+                temperature: result.main.temp
             });
         }
         else {
