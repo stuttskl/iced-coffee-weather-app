@@ -2,12 +2,15 @@ import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import Card from '@material-ui/core/Card';
 import { CardContent } from '@material-ui/core';
+import { Grid } from '@material-ui/core';
+
+import sun from './sun.png';
 
 export class CurrentWeatherDisplay extends React.Component{
   constructor(props){
     super(props);
     this.state = {
-      temperature: 33,
+      temperature: 50,
       uvIndex: 0,
       humidity: "30%",
       windSpeed: "WNW 9 mph"
@@ -27,9 +30,12 @@ export class CurrentWeatherDisplay extends React.Component{
         <div id = "weatherdisplay">
           <Card>
             <CardContent>
-              <Typography variant="h3">
-                {this.state.temperature}
-              </Typography>
+              <Grid>
+                <Typography variant="h3">
+                  {this.state.temperature}
+                </Typography>
+                <img src={sun} alt="Icon"></img>
+              </Grid>
               <Typography color="textSecondary">
                 Humidity: {this.state.humidity}
               </Typography>
