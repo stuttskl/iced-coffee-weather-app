@@ -16,7 +16,7 @@ export const getLocation = async () => {
   }
 }
 
-const getWeatherFromLocation = async (position) => {
+export const getWeatherFromLocation = async (position) => {
   let coords = {
     lat: position.coords.latitude,
     long: position.coords.longitude,

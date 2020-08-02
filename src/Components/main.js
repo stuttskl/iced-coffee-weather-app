@@ -32,8 +32,8 @@ export class Main extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            latitude: 0,
-            longitude: 0,
+            latitude: 44.566667,
+            longitude: -123.283333,
             temperature: 50,
             uvIndex: 10,
             humidity: 60,
@@ -41,13 +41,13 @@ export class Main extends React.Component {
             city: "Corvallis",
             country: "USA",
             hourlyData: {},
-            units: "F"
+            units: "F",
+            loading: true,
+            canLoad: true
         };
         this.handleAPIClick = this.handleAPIClick.bind(this);
         this.stateHandler = this.stateHandler.bind(this);
     }
-
-
 
     stateHandler(values) {
         this.setState(values);
@@ -83,6 +83,9 @@ export class Main extends React.Component {
                     temperature={this.state.temperature}
                     humidity = {this.state.humidity}
                     uvIndex = {this.state.uvIndex}
+                    windSpeed = {this.state.windSpeed}
+                    loading = {this.state.loading}
+                    canLoad = {this.state.canLoad}
                 />          
             </div>
         );
