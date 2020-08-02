@@ -17,6 +17,8 @@ router.get("/", function(req,res) {
 
 router.post("/graphdata", (req, res) => {
   console.log(params);
+
+  // Make One Call here
   let url = `http://api.openweathermap.org/data/2.5/weather?` +
             `lat=${params.lat}&lon=${params.long}&appid=${process.env.WEATHER_API_KEY}`;
 
