@@ -113,7 +113,7 @@ export class HourGraph extends React.Component {
 
   render() {
     return (
-        <LineChart width={730} height={250} data={data} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
+        <LineChart width={730} height={250} data={this.props.hourlyData} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="time" />
             <YAxis label={{ value: '°F', angle: -90, position: 'insideLeft' }} />

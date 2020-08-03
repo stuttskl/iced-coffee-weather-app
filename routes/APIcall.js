@@ -16,13 +16,14 @@ router.get("/", function(req,res) {
 });
 
 router.post("/graphdata", (req, res) => {
+  let params = req.body;
   console.log(params);
 
   // TODO
   // Make One Call here so you have hourly/weekly graph data
   // You'll need to change the URL here for that.
-  let url = `http://api.openweathermap.org/data/2.5/weather?` +
-            `lat=${params.lat}&lon=${params.long}&appid=${process.env.WEATHER_API_KEY}`;
+  let url = `https://api.openweathermap.org/data/2.5/onecall?` +
+            `lat=${params.lat}&lon=${params.long}&exclude=minutely&appid=${process.env.WEATHER_API_KEY}`;
 
   console.log(url);
 
