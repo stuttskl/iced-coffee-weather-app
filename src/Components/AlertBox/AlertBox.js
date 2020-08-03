@@ -1,4 +1,5 @@
 import React from 'react';
+import './AlertBox.css';
 
 export class AlertBox extends React.Component {
   constructor(props){
@@ -23,11 +24,15 @@ export class AlertBox extends React.Component {
     if(currentTemp >= 32 && currentTemp <= 41) {
       alert = "It's pretty cold outside. I'd stay in if you can.";
     }
+
     return (
       <React.Fragment>
-        <h1>Alert System</h1>
-        <h3>{currentTemp} °F</h3>
-        <p>{alert}</p>
+        <div className='alertBox'>
+          <h1 className='alertHeader'>Alert System</h1>
+          <h3>{currentTemp} °F</h3>
+          <p>{alert}</p>
+        </div>
+       
       </React.Fragment>
     )
   }

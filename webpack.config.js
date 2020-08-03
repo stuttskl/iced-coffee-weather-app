@@ -22,7 +22,15 @@ module.exports = {
                 }
               }
             ]
-          }
+          },
+          {
+            test: /\.css$/,
+            include: path.join(__dirname, './src/'),
+            use: [
+              "style-loader", 
+              "css-loader",
+            ]
+          },
         ]
     },
     resolve: {

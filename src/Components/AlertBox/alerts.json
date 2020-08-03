@@ -1,0 +1,66 @@
+[
+  {
+    "id": 0,
+    "tempMin": 0,
+    "tempMax": 31,  
+    "alert1": "It's below freezing",
+    "alert2": "",
+    "alert3": ""
+  },
+  {
+    "id": 1,
+    "tempMin": 32,
+    "tempMax": 45,  
+    "alert1": "It's below freezing",
+    "alert2": "",
+    "alert3": ""
+  },
+  {
+    "id": 2,
+    "tempMin": 46,
+    "tempMax": 55,  
+    "alert1": "It's below freezing",
+    "alert2": "",
+    "alert3": ""
+  },
+  {
+    "id": 3,
+    "tempMin": 56,
+    "tempMax": 67,  
+    "alert1": "It's below freezing",
+    "alert2": "",
+    "alert3": ""
+  },
+  {
+    "id": 4,
+    "tempMin": 68,
+    "tempMax": 74,  
+    "alert1": "It's below freezing",
+    "alert2": "",
+    "alert3": ""
+  },
+  {
+    "id": 5,
+    "tempMin": 75,
+    "tempMax": 88,  
+    "alert1": "It's below freezing",
+    "alert2": "",
+    "alert3": ""
+  },
+  {
+    "id": 6,
+    "tempMin": 89,
+    "tempMax": 96,  
+    "alert1": "It's below freezing",
+    "alert2": "",
+    "alert3": ""
+  },
+  {
+    "id": 7,
+    "tempMin": 97,
+    "tempMax": 120,  
+    "alert1": "It's below freezing",
+    "alert2": "",
+    "alert3": ""
+  }
+]
