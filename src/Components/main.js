@@ -88,7 +88,9 @@ export class Main extends React.Component {
                     loading = {this.state.loading}
                     canLoad = {this.state.canLoad}
                 />
-                <AlertBox />    
+                <AlertBox 
+                    temperature={this.state.temperature}
+                />    
             </div>
         );
     }
