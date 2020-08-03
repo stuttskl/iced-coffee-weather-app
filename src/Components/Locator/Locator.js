@@ -39,13 +39,13 @@ export class Locator extends React.Component{
     }
 
     let newData;
-    if (result.success === true && graphDataResults.sucess === true) {
+    if (result.success === true && graphDataResults.success === true) {
 
       let hourlyData = [];
-      for (i=0; i < 24; i++){
+      for (let i=0; i < 24; i++){
         hourlyData[i] = {
           "time": graphDataResults.hourly[i].dt,
-          "temperature": graphDataResults.hourly[i].temp
+          "temperature": ((graphDataResults.hourly[i].temp - 273.15) * 1.8 + 32).toFixed(2)
         }
       }
       console.log(hourlyData);
