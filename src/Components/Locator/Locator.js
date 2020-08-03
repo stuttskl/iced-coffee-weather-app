@@ -2,6 +2,7 @@ import Button from '@material-ui/core/Button';
 import React from 'react';
 
 import { getLocation, getWeatherFromLocation } from '../../location/getLocation';
+import { getGraphData } from '../Graphs/getGraphData';
 
 export class Locator extends React.Component{
   constructor(props){
@@ -19,9 +20,11 @@ export class Locator extends React.Component{
 
   async runLocator() {
     let result;
+    let graphDataResults;
     result = await getLocation();
     if (result.success) {
       console.log(result);
+      graphDataResults = await getGraphData({ latitude: result.coord.lat, longitude: result.coord.lon });
     }
     else {
       // Default to getting weather from Corvallis if the user doesn't consent to giving their location
@@ -31,17 +34,29 @@ export class Locator extends React.Component{
           longitude: -123.283333
         }
       })
+      graphDataResults = await getGraphData({ latitude: 44.566667, longitude: -123.283333 });
       console.log("DEBUG: Could not find your location. (or wasn't given permission)");
     }
 
     let newData;
-    if (result.success === true) {
+    if (result.success === true && graphDataResults.success === true) {
+
+      let hourlyData = [];
+      for (let i=0; i < 24; i++){
+        hourlyData[i] = {
+          "time": graphDataResults.hourly[i].dt,
+          "temperature": ((graphDataResults.hourly[i].temp - 273.15) * 1.8 + 32).toFixed(2)
+        }
+      }
+      console.log(hourlyData);
+
       newData = {
         city: result.name,
         country: result.sys.country,
         temperature: result.main.temp,
         humidity: result.main.humidity,
         windSpeed: result.wind.speed,
+        hourlyData: hourlyData,
         loading: false,
         canLoad: true
       }

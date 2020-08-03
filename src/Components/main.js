@@ -40,7 +40,7 @@ export class Main extends React.Component {
             windSpeed: 12,
             city: "Corvallis",
             country: "USA",
-            hourlyData: {},
+            hourlyData: [],
             units: "F",
             loading: true,
             canLoad: true
@@ -69,7 +69,8 @@ export class Main extends React.Component {
         return (
             <div id="main-view">
                 <HeaderHook />
-                <HourGraph />
+                <HourGraph 
+                    hourlyData={this.state.hourlyData} />
                 <ForecastGraph />
                 <Locator 
                     stateHandler={this.stateHandler}
