@@ -5,10 +5,10 @@ import Typography from '@material-ui/core/Typography';
 
 // Dependencies created by our group
 import { mainStyles } from '../styles/styles';
-import { getLocation } from '../location/getLocation';
 import { HourGraph } from './Graphs/Hourgraph';
-import { ForecastGraph } from './Graphs/Forecastgraph';
+import { ForecastGraph } from './Graphs/ForecastGraph';
 import { CurrentWeatherDisplay} from './CurrentWeatherDisplay/CurrentWeatherDisplay';
+import { Locator } from './Locator/Locator';
 
 /* One way of styling with Material UI is to use hooks.
    However, these only work inside functions, so we can't have this with
@@ -32,31 +32,25 @@ export class Main extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            latitude: 44.566667,
+            longitude: -123.283333,
             temperature: 50,
             uvIndex: 10,
             humidity: 60,
             windSpeed: 12,
             city: "Corvallis",
-            country: "USA"
+            country: "USA",
+            hourlyData: {},
+            units: "F",
+            loading: true,
+            canLoad: true
         };
-        this.handleDebugClick = this.handleDebugClick.bind(this);
         this.handleAPIClick = this.handleAPIClick.bind(this);
+        this.stateHandler = this.stateHandler.bind(this);
     }
 
-    // Kind of temporary, for debug purposes and to demonstrate the location feature.
-    async handleDebugClick(e) {
-        e.preventDefault();
-        let result;
-        result = await getLocation();
-        if (result.success) {
-            this.setState({
-                city: result.city,
-                country: result.country
-            });
-        }
-        else {
-            console.log("DEBUG: Could not find your location.");
-        }
+    stateHandler(values) {
+        this.setState(values);
     }
 
     handleAPIClick(e) {
@@ -77,9 +71,9 @@ export class Main extends React.Component {
                 <HeaderHook />
                 <HourGraph />
                 <ForecastGraph />
-                <Button variant="contained" color="primary" onClick={this.handleDebugClick}>
-                    Debug - Get Location
-                </Button>
+                <Locator 
+                    stateHandler={this.stateHandler}
+                />
                 <Button variant="contained" color="primary" onClick={this.handleAPIClick}>
                     Debug - Make API Call
                 </Button>
@@ -89,6 +83,9 @@ export class Main extends React.Component {
                     temperature={this.state.temperature}
                     humidity = {this.state.humidity}
                     uvIndex = {this.state.uvIndex}
+                    windSpeed = {this.state.windSpeed}
+                    loading = {this.state.loading}
+                    canLoad = {this.state.canLoad}
                 />          
             </div>
         );

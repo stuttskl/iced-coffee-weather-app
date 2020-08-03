@@ -1,4 +1,4 @@
-# Weather Roasters (placeholder name - change this)
+# Weather Roasters
 
 ## Overview
 This web application tells you the weather in a location of your choosing and will show you:
