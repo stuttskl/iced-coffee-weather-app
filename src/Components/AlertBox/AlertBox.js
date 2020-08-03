@@ -10,6 +10,7 @@ export class AlertBox extends React.Component {
   }
 
   render() {
+    // this is really rough. I want to implement a cleaner solution to generate these alerts
     let currentTemp = ((this.props.temperature - 273.15) * 1.8 + 32).toFixed(2);
     let alert = "";
     if(currentTemp > 96) {
