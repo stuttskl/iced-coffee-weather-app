@@ -1,5 +1,8 @@
 import React from 'react';
 import './AlertBox.css';
+import Typography from '@material-ui/core/Typography';
+import Card from '@material-ui/core/Card';
+import { CardContent } from '@material-ui/core';
 
 export class AlertBox extends React.Component {
   constructor(props){
@@ -27,12 +30,15 @@ export class AlertBox extends React.Component {
 
     return (
       <React.Fragment>
-        <div className='alertBox'>
-          <h1 className='alertHeader'>Alert System</h1>
-          <h3>{currentTemp} °F</h3>
-          <p>{alert}</p>
-        </div>
-       
+        <Card>
+          <CardContent>
+            <div className='alertBox'>
+              <h1 className='alertHeader'>Alert System</h1>
+              <h3>{currentTemp} °F</h3>
+              <p>{alert}</p>
+            </div>
+          </CardContent>
+        </Card>
       </React.Fragment>
     )
   }
