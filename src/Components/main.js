@@ -9,6 +9,7 @@ import { HourGraph } from './Graphs/Hourgraph';
 import { ForecastGraph } from './Graphs/ForecastGraph';
 import { CurrentWeatherDisplay} from './CurrentWeatherDisplay/CurrentWeatherDisplay';
 import { Locator } from './Locator/Locator';
+import { AlertBox } from './AlertBox/AlertBox';
 
 /* One way of styling with Material UI is to use hooks.
    However, these only work inside functions, so we can't have this with
@@ -87,7 +88,10 @@ export class Main extends React.Component {
                     windSpeed = {this.state.windSpeed}
                     loading = {this.state.loading}
                     canLoad = {this.state.canLoad}
-                />          
+                />
+                <AlertBox 
+                    temperature={this.state.temperature}
+                />    
             </div>
         );
     }
