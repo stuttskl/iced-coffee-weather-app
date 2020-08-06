@@ -1,0 +1,14 @@
+.main-component {
+  padding: 10px;
+  text-align: center;
+  background-color: #EEE;
+}
+
+.spacer {
+  height: 20px;
+}
+
+.graph {
+  display: flex;
+  justify-content: center;
+}

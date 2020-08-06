@@ -48,15 +48,17 @@ export class ForecastGraph extends React.Component {
 
   render() {
     return (
-        <BarChart width={730} height={250} data={data} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="Day" />
-            <YAxis label={{ value: '°F', angle: -90, position: 'insideLeft' }} />
-            <Tooltip />
-            <Legend />
-            <Bar dataKey="High" fill="#fcb103" />
-            <Bar dataKey="Low" fill="#03adfc" />
-        </BarChart>
+        <div className="graph">
+            <BarChart width={530} height={250} data={data} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="Day" />
+                <YAxis label={{ value: '°F', angle: -90, position: 'insideLeft' }} />
+                <Tooltip />
+                <Legend />
+                <Bar dataKey="High" fill="#fcb103" />
+                <Bar dataKey="Low" fill="#03adfc" />
+            </BarChart>
+        </div>
     );
   }
 };

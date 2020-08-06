@@ -10,6 +10,11 @@ import { ForecastGraph } from './Graphs/ForecastGraph';
 import { CurrentWeatherDisplay} from './CurrentWeatherDisplay/CurrentWeatherDisplay';
 import { Locator } from './Locator/Locator';
 import { AlertBox } from './AlertBox/AlertBox';
+import { SearchBar } from './SearchBar/SearchBar';
+import Container from '@material-ui/core/Container';
+import Grid from '@material-ui/core/Grid';
+import Divider from '@material-ui/core/Divider';
+import "../styles/Main.css";
 
 /* One way of styling with Material UI is to use hooks.
    However, these only work inside functions, so we can't have this with
@@ -68,31 +73,48 @@ export class Main extends React.Component {
 
     render() {
         return (
-            <div id="main-view">
+            <Container maxWidth="lg" id="main-view">
                 <HeaderHook />
-                <HourGraph 
-                    hourlyData={this.state.hourlyData} />
-                <ForecastGraph />
-                <Locator 
-                    stateHandler={this.stateHandler}
-                />
-                <Button variant="contained" color="primary" onClick={this.handleAPIClick}>
-                    Debug - Make API Call
-                </Button>
-                <CurrentWeatherDisplay 
-                    city={this.state.city}
-                    country={this.state.country}
-                    temperature={this.state.temperature}
-                    humidity = {this.state.humidity}
-                    uvIndex = {this.state.uvIndex}
-                    windSpeed = {this.state.windSpeed}
-                    loading = {this.state.loading}
-                    canLoad = {this.state.canLoad}
-                />
-                <AlertBox 
-                    temperature={this.state.temperature}
-                />    
-            </div>
+                <SearchBar />
+                <div className="spacer"></div>
+                <Grid container spacing={3}>
+                    <Grid item xs={4}>
+                        <div className="main-component">
+                            <Locator 
+                                stateHandler={this.stateHandler}
+                            />
+                            <div className="spacer"></div>
+                            <Button variant="contained" color="primary" onClick={this.handleAPIClick}>
+                                Debug - Make API Call
+                            </Button>
+                            <CurrentWeatherDisplay 
+                                city={this.state.city}
+                                country={this.state.country}
+                                temperature={this.state.temperature}
+                                humidity = {this.state.humidity}
+                                uvIndex = {this.state.uvIndex}
+                                windSpeed = {this.state.windSpeed}
+                                loading = {this.state.loading}
+                                canLoad = {this.state.canLoad}
+                            />
+                            <AlertBox 
+                                temperature={this.state.temperature}
+                            /> 
+                        </div>
+                    </Grid>
+                    <Grid item xs={8}>
+                        <div className="main-component">
+                            <HourGraph 
+                                hourlyData={this.state.hourlyData} 
+                            />
+                            <div className="spacer"></div>
+                            <ForecastGraph />
+                        </div>
+                    </Grid>
+                </Grid>
+
+   
+            </Container>
         );
     }
     
