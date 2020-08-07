@@ -33,7 +33,7 @@ export class CurrentWeatherDisplay extends React.Component{
       toRender = <React.Fragment>
         <div id='weather-display-main'>
             <div id="current-conditions">
-              <Typography variant="h3">
+              <Typography variant="h4">
                 Current conditions for {this.props.city}, {this.props.country}:
               </Typography>
             </div>
@@ -41,10 +41,10 @@ export class CurrentWeatherDisplay extends React.Component{
               <Card>
                 <CardContent>
                   <Grid>
-                    <Typography variant="h3">
+                    <Typography variant="h4">
                       {((this.props.temperature - 273.15) * 1.8 + 32).toFixed(2)} °F
                     </Typography>
-                    <img src={sun} alt="Icon"></img>
+                    <img src={sun} alt="Icon" id="weather-icon"></img>
                   </Grid>
                   <Typography color="textSecondary">
                     Humidity: {this.props.humidity}%
