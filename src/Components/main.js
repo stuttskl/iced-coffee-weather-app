@@ -15,6 +15,7 @@ import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 import Divider from '@material-ui/core/Divider';
 import "../styles/Main.css";
+import Alert from '@material-ui/lab/Alert';
 
 /* One way of styling with Material UI is to use hooks.
    However, these only work inside functions, so we can't have this with
@@ -97,6 +98,7 @@ export class Main extends React.Component {
                                 loading = {this.state.loading}
                                 canLoad = {this.state.canLoad}
                             />
+                            {/* <AlertBox /> */}
                             <AlertBox 
                                 temperature={this.state.temperature}
                             /> 
