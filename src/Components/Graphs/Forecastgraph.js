@@ -34,7 +34,7 @@ export class ForecastGraph extends React.Component {
             <Grid container spacing={2} justify="center">
                 <Grid item xs={12}>
                     <Typography variant="h4" align="center" display="block">
-                        7 DAY FORECAST
+                        7 Day Forecast
                     </Typography>
                 </Grid>
                 <Grid item xs={12} >
