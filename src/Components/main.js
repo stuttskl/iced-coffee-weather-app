@@ -47,7 +47,7 @@ export class Main extends React.Component {
             city: "Corvallis",
             country: "USA",
             hourlyData: [],
-            // dailyData: [],
+            dailyData: [],
             units: "F",
             loading: true,
             canLoad: true

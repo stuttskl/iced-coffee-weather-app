@@ -52,7 +52,7 @@ export class Locator extends React.Component{
       console.log(hourlyData);
 
       let dailyData = [];
-      for (let i=0; i < 7; i++){
+      for (let i=0; i < 8; i++){
         dailyData[i] = {
           "Day": Moment(graphDataResults.daily[i].dt * 1000).format('dddd').slice(0, 3),
           "High": ((graphDataResults.daily[i].temp.max - 273.15) * 1.8 + 32).toFixed(2),
@@ -68,6 +68,7 @@ export class Locator extends React.Component{
         humidity: result.main.humidity,
         windSpeed: result.wind.speed,
         hourlyData: hourlyData,
+        dailyData: dailyData,
         loading: false,
         canLoad: true
       }
