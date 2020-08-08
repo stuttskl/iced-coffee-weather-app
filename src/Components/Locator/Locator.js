@@ -1,5 +1,6 @@
 import Button from '@material-ui/core/Button';
 import React from 'react';
+import Moment from 'moment';
 
 import { getLocation, getWeatherFromLocation } from '../../location/getLocation';
 import { getGraphData } from '../Graphs/getGraphData';
@@ -44,11 +45,21 @@ export class Locator extends React.Component{
       let hourlyData = [];
       for (let i=0; i < 24; i++){
         hourlyData[i] = {
-          "time": graphDataResults.hourly[i].dt,
+          "time": Moment(graphDataResults.hourly[i].dt * 1000).format('hh:mm A'),
           "temperature": ((graphDataResults.hourly[i].temp - 273.15) * 1.8 + 32).toFixed(2)
         }
       }
       console.log(hourlyData);
+
+      let dailyData = [];
+      for (let i=0; i < 7; i++){
+        dailyData[i] = {
+          "Day": Moment(graphDataResults.daily[i].dt * 1000).format('dddd').slice(0, 3),
+          "High": ((graphDataResults.daily[i].temp.max - 273.15) * 1.8 + 32).toFixed(2),
+          "Low": ((graphDataResults.daily[i].temp.min - 273.15) * 1.8 + 32).toFixed(2)
+        }
+      }
+      console.log(dailyData);
 
       newData = {
         city: result.name,

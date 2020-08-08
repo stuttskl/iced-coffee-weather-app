@@ -47,6 +47,7 @@ export class Main extends React.Component {
             city: "Corvallis",
             country: "USA",
             hourlyData: [],
+            // dailyData: [],
             units: "F",
             loading: true,
             canLoad: true
@@ -108,7 +109,9 @@ export class Main extends React.Component {
                                 hourlyData={this.state.hourlyData} 
                             />
                             <div className="spacer"></div>
-                            <ForecastGraph />
+                            <ForecastGraph 
+                                dailyData={this.state.dailyData}
+                            />
                         </div>
                     </Grid>
                 </Grid>
