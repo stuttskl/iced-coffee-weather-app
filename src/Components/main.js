@@ -111,6 +111,8 @@ export class Main extends React.Component {
                             <div className="spacer"></div>
                             <ForecastGraph 
                                 dailyData={this.state.dailyData}
+                                loading = {this.state.loading}
+                                canLoad = {this.state.canLoad}
                             />
                         </div>
                     </Grid>
