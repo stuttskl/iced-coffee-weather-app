@@ -8,6 +8,8 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import './CurrentWeatherDisplay.css';
 import sun from './sun.png';
 
+import { testFunction } from '../testFunction';
+
 function Alert(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
 }
@@ -42,7 +44,8 @@ export class CurrentWeatherDisplay extends React.Component{
                 <CardContent>
                   <Grid>
                     <Typography variant="h4">
-                      {((this.props.temperature - 273.15) * 1.8 + 32).toFixed(2)} °F
+                      {/* {((this.props.temperature - 273.15) * 1.8 + 32).toFixed(2)} °F */}
+                      {testFunction(this.props.temperature, this.props.enabled)}
                     </Typography>
                     <img src={sun} alt="Icon" id="weather-icon"></img>
                   </Grid>

@@ -49,7 +49,8 @@ export class Main extends React.Component {
             hourlyData: [],
             units: "F",
             loading: true,
-            canLoad: true
+            canLoad: true,
+            enabled: true,
         };
         this.handleAPIClick = this.handleAPIClick.bind(this);
         this.stateHandler = this.stateHandler.bind(this);
@@ -61,14 +62,18 @@ export class Main extends React.Component {
 
     handleAPIClick(e) {
         e.preventDefault(e)
-        fetch('/weather')
-            .then(function(response) {
-                return response.json();
-            })
-            .then(function(data) {
-                console.log(JSON.stringify(data));
-                alert('API Call initiated! Check your console!')
-            });
+        // fetch('/weather')
+        //     .then(function(response) {
+        //         return response.json();
+        //     })
+        //     .then(function(data) {
+        //         console.log(JSON.stringify(data));
+        //         alert('API Call initiated! Check your console!')
+        //     });
+        let current = this.state.enabled;
+        this.setState({
+            enabled: !current
+        });
     }
 
     render() {
@@ -96,6 +101,7 @@ export class Main extends React.Component {
                                 windSpeed = {this.state.windSpeed}
                                 loading = {this.state.loading}
                                 canLoad = {this.state.canLoad}
+                                enabled = {this.state.enabled}
                             />
                             <AlertBox 
                                 temperature={this.state.temperature}
