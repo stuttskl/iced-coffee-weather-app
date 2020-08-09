@@ -52,24 +52,11 @@ export class Main extends React.Component {
             loading: true,
             canLoad: true
         };
-        this.handleAPIClick = this.handleAPIClick.bind(this);
         this.stateHandler = this.stateHandler.bind(this);
     }
 
     stateHandler(values) {
         this.setState(values);
-    }
-
-    handleAPIClick(e) {
-        e.preventDefault(e)
-        fetch('/weather')
-            .then(function(response) {
-                return response.json();
-            })
-            .then(function(data) {
-                console.log(JSON.stringify(data));
-                alert('API Call initiated! Check your console!')
-            });
     }
 
     render() {
@@ -85,9 +72,6 @@ export class Main extends React.Component {
                                 stateHandler={this.stateHandler}
                             />
                             <div className="spacer"></div>
-                            <Button variant="contained" color="primary" onClick={this.handleAPIClick}>
-                                Debug - Make API Call
-                            </Button>
                             <CurrentWeatherDisplay 
                                 city={this.state.city}
                                 country={this.state.country}

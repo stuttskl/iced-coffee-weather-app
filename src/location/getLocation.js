@@ -47,11 +47,8 @@ export const getWeatherFromLocation = async (position) => {
 export const getLocationAndWeatherFromCity = async (query) => {
   let result;
 
-  await fetch(window.location.href + `weather/getbycoords?${query}`, {
+  await fetch(window.location.href + `weather?${query}`, {
     method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-    },
   })
   .then(response => response.json())
   .then(data => {

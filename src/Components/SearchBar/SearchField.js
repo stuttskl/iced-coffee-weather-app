@@ -1,6 +1,7 @@
 import TextField from '@material-ui/core/TextField';
 import React from 'react';
 
+// The form the user types a location into
 export const SearchField = (props) => {
   const handleChange = (e) => {
     let value = e.target.value;
@@ -12,7 +13,7 @@ export const SearchField = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Submitted!");
+    props.updateLocation(0);
   }
 
   return (

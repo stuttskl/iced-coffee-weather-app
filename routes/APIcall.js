@@ -3,14 +3,15 @@ const axios = require('axios');
 
 const router = express.Router();
 
-// Don't delete! Now it is used
+// Don't delete! Now it is used for getting weather for a specific city
 router.get("/", function(req,res) {
   let formattedQuery;
-  let city = req.query.city ? req.query.city.toString() : "";
+  let city = req.query.value ? req.query.value.toString() : "";
   let state = req.query.state ? req.query.state.toString() : "";
   let country = req.query.country ? req.query.country.toString() : "";
+  console.log(req.query);
 
-  if (req.query.city) {
+  if (req.query.value) {
     formattedQuery = city + "," + state + "," + country;
     axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${formattedQuery}&appid=${process.env.WEATHER_API_KEY}`)
       .then(function(response) {
@@ -18,6 +19,7 @@ router.get("/", function(req,res) {
       })
       //catch error
       .catch(function(error) {
+        console.log(error);
         res.sendStatus(400);
       });
   }

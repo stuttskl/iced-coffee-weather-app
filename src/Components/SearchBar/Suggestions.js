@@ -15,6 +15,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+// Fetch city/location suggestions from the back end API
 export const getSuggestions = async (values, handler) => {
   if (values && values[0] != "") {
     let result;
@@ -51,7 +52,7 @@ export const Suggestions = (props) => {
         const state = suggestion.state != "" ? `${suggestion.state}, ` : '';
         let formattedName = `${suggestion.name}, ${state}${country}`;
         return (
-          <ListItem button divider key={index} onClick={() => console.log("Clicked " + index)}>
+          <ListItem button divider key={index} onClick={() => {props.updateLocation(index)}}>
             <ListItemText primary={formattedName} />
           </ListItem>
         );

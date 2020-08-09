@@ -40,11 +40,11 @@ If you do not specify a port number, it will default to port 3000
 In that case, we'll run a script that uses nodemon for the back end, and webpack with `--watch` used on the front end:
 
 ```
-npm run start
+npm run build-watch
 ```
 Then, open *another* terminal window and enter this:
 ```
-npm run build-watch
+npm run start
 ```
 Now when you make any changes in the front end or back end codes, webpack will re-build main script and the server will restart.
 
@@ -57,3 +57,7 @@ Now when you make any changes in the front end or back end codes, webpack will r
 ## Credits
 I followed the tutorial here and changed the run/build scripts (and a few other minor things) to fit my needs better:
 https://levelup.gitconnected.com/how-to-setup-environment-using-react-webpack-express-babel-d5f1b572b678
+
+A guide for helping me with making components go away when clicking outside of them:
+https://medium.com/@pitipatdop/little-neat-trick-to-capture-click-outside-react-component-5604830beb7f
+(although it's better to use Hooks a fancy new React tricks nowadays)
