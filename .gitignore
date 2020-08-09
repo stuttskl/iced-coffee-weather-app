@@ -10,3 +10,6 @@ package-lock.json
 
 # api keys
 .env
+
+# remove later - temporary city data file
+city.list.json

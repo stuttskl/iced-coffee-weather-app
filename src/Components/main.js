@@ -76,7 +76,7 @@ export class Main extends React.Component {
         return (
             <Container maxWidth="lg" id="main-view">
                 <HeaderHook />
-                <SearchBar />
+                <SearchBar mainStateHandler={this.stateHandler}/>
                 <div className="spacer"></div>
                 <Grid container spacing={3}>
                     <Grid item xs={4}>

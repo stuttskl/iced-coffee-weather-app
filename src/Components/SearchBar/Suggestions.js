@@ -4,6 +4,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 import LinearProgress from '@material-ui/core/LinearProgress';
 import React from 'react';
+import { countryCodes } from '../../constants/countrycodes';
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -14,9 +15,29 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+export const getSuggestions = async (values, handler) => {
+  if (values && values[0] != "") {
+    let result;
+
+    await fetch(window.location.href + `citylookup?value=${values[0]}&state=${values[1]}&country=${values[2]}`, {
+      method: 'GET',
+    })
+    .then(response => {
+      return response.json();
+    })
+    .then(data => {
+      result = data;
+      handler({ suggestions: data, loading: false });
+    })
+    .catch((error) => {
+      console.log(error);
+      result = [];
+    });  
+  }
+}
+
 export const Suggestions = (props) => {
   const classes = useStyles();
-  const testData = ["Seattle", "Portland", "Vancouver", "Los Angeles", "New York"];
 
   let suggestionsWidget;
 
@@ -25,10 +46,13 @@ export const Suggestions = (props) => {
   }
   else {
     suggestionsWidget =
-      testData.map((cityName, index) => {
+      props.suggestions.map((suggestion, index) => {
+        const country = countryCodes[suggestion.country];
+        const state = suggestion.state != "" ? `${suggestion.state}, ` : '';
+        let formattedName = `${suggestion.name}, ${state}${country}`;
         return (
-          <ListItem button divider key={index}>
-            <ListItemText primary={cityName} />
+          <ListItem button divider key={index} onClick={() => console.log("Clicked " + index)}>
+            <ListItemText primary={formattedName} />
           </ListItem>
         );
       });
