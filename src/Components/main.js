@@ -67,7 +67,7 @@ export class Main extends React.Component {
                 return response.json();
             })
             .then(function(data) {
-                console.log(JSON.stringify(data));
+                // console.log(JSON.stringify(data));
                 alert('API Call initiated! Check your console!')
             });
     }
@@ -77,6 +77,9 @@ export class Main extends React.Component {
             <Container maxWidth="lg" id="main-view">
                 <HeaderHook />
                 <SearchBar />
+                <AlertBox 
+                    temperature={this.state.temperature}
+                /> 
                 <div className="spacer"></div>
                 <Grid container spacing={3}>
                     <Grid item xs={4}>
@@ -97,10 +100,8 @@ export class Main extends React.Component {
                                 windSpeed = {this.state.windSpeed}
                                 loading = {this.state.loading}
                                 canLoad = {this.state.canLoad}
+                                icontype = 'fas fa-sun'
                             />
-                            <AlertBox 
-                                temperature={this.state.temperature}
-                            /> 
                         </div>
                     </Grid>
                     <Grid item xs={8}>
