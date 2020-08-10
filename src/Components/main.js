@@ -5,8 +5,8 @@ import Typography from '@material-ui/core/Typography';
 
 // Dependencies created by our group
 import { mainStyles } from '../styles/styles';
-import { HourGraph } from './Graphs/Hourgraph';
-import { ForecastGraph } from './Graphs/Forecastgraph';
+import { HourGraph } from './Graphs/HourGraph';
+import { ForecastGraph } from './Graphs/ForecastGraph';
 import { CurrentWeatherDisplay} from './CurrentWeatherDisplay/CurrentWeatherDisplay';
 import { Locator } from './Locator/Locator';
 import { AlertBox } from './AlertBox/AlertBox';
