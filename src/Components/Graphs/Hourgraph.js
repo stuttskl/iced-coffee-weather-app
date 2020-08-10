@@ -34,7 +34,7 @@ export class HourGraph extends React.Component {
             <Grid container spacing={2} justify="center">
                 <Grid item xs={12}>
                 <Typography variant="h4" align="center" display="block">
-                    24Hr Forecast
+                    24 Hour Forecast
                 </Typography>
                 </Grid>
                 <Grid item xs={12} >
