@@ -1,7 +1,8 @@
 // 3rd-party dependencies
-import Button from '@material-ui/core/Button';
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
+import Container from '@material-ui/core/Container';
+import Grid from '@material-ui/core/Grid';
 
 // Dependencies created by our group
 import { mainStyles } from '../styles/styles';
@@ -11,9 +12,6 @@ import { CurrentWeatherDisplay} from './CurrentWeatherDisplay/CurrentWeatherDisp
 import { Locator } from './Locator/Locator';
 import { AlertBox } from './AlertBox/AlertBox';
 import { SearchBar } from './SearchBar/SearchBar';
-import Container from '@material-ui/core/Container';
-import Grid from '@material-ui/core/Grid';
-import Divider from '@material-ui/core/Divider';
 import "../styles/Main.css";
 
 /* One way of styling with Material UI is to use hooks.
@@ -99,10 +97,7 @@ export class Main extends React.Component {
                         </div>
                     </Grid>
                 </Grid>
-
-   
             </Container>
         );
-    }
-    
+    } 
 };
