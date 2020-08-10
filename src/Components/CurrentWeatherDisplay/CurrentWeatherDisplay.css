@@ -2,6 +2,10 @@
   padding: 2rem;
 }
 
+#weather-display {
+  padding-top: 0.5em;
+}
+
 #weather-icon {
   height: 50%;
   width: 50%;

@@ -7,6 +7,7 @@ import MuiAlert from '@material-ui/lab/Alert';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import './CurrentWeatherDisplay.css';
 import sun from './sun.png';
+import { countryCodes } from '../../constants/countrycodes';
 
 function Alert(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -33,15 +34,15 @@ export class CurrentWeatherDisplay extends React.Component{
       toRender = <React.Fragment>
         <div id='weather-display-main'>
             <div id="current-conditions">
-              <Typography variant="h4">
-                Current conditions for {this.props.city}, {this.props.country}:
+              <Typography variant="h5">
+                Current conditions for {this.props.city}, {countryCodes[this.props.country]}
               </Typography>
             </div>
-            <div id = "weatherdisplay">
+            <div id = "weather-display">
               <Card>
                 <CardContent>
                   <Grid>
-                    <Typography variant="h4">
+                    <Typography variant="h5">
                       {((this.props.temperature - 273.15) * 1.8 + 32).toFixed(2)} °F
                     </Typography>
                     <img src={sun} alt="Icon" id="weather-icon"></img>

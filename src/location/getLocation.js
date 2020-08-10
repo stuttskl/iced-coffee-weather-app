@@ -43,3 +43,21 @@ export const getWeatherFromLocation = async (position) => {
 
   return result;
 };
+
+export const getLocationAndWeatherFromCity = async (query) => {
+  let result;
+
+  await fetch(window.location.href + `weather?${query}`, {
+    method: 'GET',
+  })
+  .then(response => response.json())
+  .then(data => {
+    result = data;
+    result.success = true;
+  })
+  .catch((error) => {
+    result = { success: false };
+  });
+
+  return result;
+};

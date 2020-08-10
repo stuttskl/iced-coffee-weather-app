@@ -10,3 +10,7 @@ package-lock.json
 
 # api keys
 .env
+
+# remove later - temporary city data files and scripts for converting them into something
+#                smaller and more useable.
+local_extras

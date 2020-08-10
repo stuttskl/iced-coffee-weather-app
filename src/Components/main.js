@@ -52,7 +52,6 @@ export class Main extends React.Component {
             loading: true,
             canLoad: true
         };
-        this.handleAPIClick = this.handleAPIClick.bind(this);
         this.stateHandler = this.stateHandler.bind(this);
     }
 
@@ -60,23 +59,11 @@ export class Main extends React.Component {
         this.setState(values);
     }
 
-    handleAPIClick(e) {
-        e.preventDefault(e)
-        fetch('/weather')
-            .then(function(response) {
-                return response.json();
-            })
-            .then(function(data) {
-                console.log(JSON.stringify(data));
-                alert('API Call initiated! Check your console!')
-            });
-    }
-
     render() {
         return (
             <Container maxWidth="lg" id="main-view">
                 <HeaderHook />
-                <SearchBar />
+                <SearchBar mainStateHandler={this.stateHandler}/>
                 <div className="spacer"></div>
                 <Grid container spacing={3}>
                     <Grid item xs={4}>
@@ -85,9 +72,6 @@ export class Main extends React.Component {
                                 stateHandler={this.stateHandler}
                             />
                             <div className="spacer"></div>
-                            <Button variant="contained" color="primary" onClick={this.handleAPIClick}>
-                                Debug - Make API Call
-                            </Button>
                             <CurrentWeatherDisplay 
                                 city={this.state.city}
                                 country={this.state.country}
