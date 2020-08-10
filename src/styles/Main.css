@@ -18,3 +18,7 @@
   display: flex;
   justify-content: center;
 }
+
+.alertBox {
+  margin: .5em;
+}

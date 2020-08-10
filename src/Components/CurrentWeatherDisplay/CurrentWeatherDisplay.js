@@ -24,12 +24,6 @@ export class CurrentWeatherDisplay extends React.Component{
   render(){
     let toRender;
     let iconStyle = "fas fa-sun"
-    let icons = {
-      cloud: 'fas fa-cloud',
-      sun: 'fas fa-sun',
-      rain: 'fas fa-cloud-showers-heavy',
-      snow: 'fas fa-snowflake'
-    }
 
     if (!this.props.canLoad) {
       toRender = <React.Fragment>

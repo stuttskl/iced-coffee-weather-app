@@ -59,33 +59,16 @@ export class Main extends React.Component {
         this.setState(values);
     }
 
-<<<<<<< HEAD
-    handleAPIClick(e) {
-        e.preventDefault(e)
-        fetch('/weather')
-            .then(function(response) {
-                return response.json();
-            })
-            .then(function(data) {
-                // console.log(JSON.stringify(data));
-                alert('API Call initiated! Check your console!')
-            });
-    }
-
-=======
->>>>>>> afc88509d73ff2a8aaab3a624ceb56d047830103
     render() {
         return (
             <Container maxWidth="lg" id="main-view">
                 <HeaderHook />
-<<<<<<< HEAD
-                <SearchBar />
-                <AlertBox 
-                    temperature={this.state.temperature}
-                /> 
-=======
                 <SearchBar mainStateHandler={this.stateHandler}/>
->>>>>>> afc88509d73ff2a8aaab3a624ceb56d047830103
+                <div className='alertBox'>
+                    <AlertBox 
+                        temperature={this.state.temperature}
+                    /> 
+                </div>
                 <div className="spacer"></div>
                 <Grid container spacing={3}>
                     <Grid item xs={4}>
