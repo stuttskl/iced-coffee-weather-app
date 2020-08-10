@@ -21,6 +21,8 @@ export class Locator extends React.Component{
   async runLocator() {
     let result;
     let graphDataResults;
+
+    this.props.stateHandler({loading: true});
     result = await getLocation();
     if (result.success) {
       console.log(result);

@@ -1,6 +1,7 @@
 const express = require("express");
 const bodyParser = require('body-parser');
 const apiRoutes = require("./routes/APIcall");
+const cityLookupRoutes = require('./routes/CityLookup');
 require('dotenv').config();
 const DEFAULT_PORT = 3000;
 let portNumber  = DEFAULT_PORT;
@@ -12,6 +13,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 // Routes for API calls and getting weather data
 app.use("/weather", apiRoutes);
+app.use("/citylookup", cityLookupRoutes);
 
 if (process.argv.length > 2 && process.argv[2]) {
   portNumber = process.argv[2];
