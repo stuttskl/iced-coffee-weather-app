@@ -22,8 +22,6 @@ export const getGraphData = async (position) => {
     .catch((error) => {
       result = { success: false };
     });
-    
-    console.log(result);
 
     return result;
   };

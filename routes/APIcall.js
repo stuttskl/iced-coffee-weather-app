@@ -3,29 +3,11 @@ const axios = require('axios');
 
 const router = express.Router();
 
-
-router.get("/", function(req,res) {
-  axios.get("https://api.openweathermap.org/data/2.5/weather?q=Seattle&appid=" + process.env.WEATHER_API_KEY)
-    .then(function(response) {
-      res.send(response.data);
-    })
-    //catch error
-    .catch(function(error) {
-      res.sendStatus(400);
-    })
-});
-
 router.post("/graphdata", (req, res) => {
   let params = req.body;
-  console.log(params);
 
-  // TODO
-  // Make One Call here so you have hourly/weekly graph data
-  // You'll need to change the URL here for that.
   let url = `https://api.openweathermap.org/data/2.5/onecall?` +
             `lat=${params.lat}&lon=${params.long}&exclude=minutely&appid=${process.env.WEATHER_API_KEY}`;
-
-  console.log(url);
 
   axios.get(url)
   .then(function(response) {
@@ -38,11 +20,8 @@ router.post("/graphdata", (req, res) => {
 
 router.post('/getbycoords', (req, res) => {
   let params = req.body;
-  console.log(params);
   let url = `http://api.openweathermap.org/data/2.5/weather?` +
             `lat=${params.lat}&lon=${params.long}&appid=${process.env.WEATHER_API_KEY}`;
-
-  console.log(url);
 
   axios.get(url)
   .then(function(response) {

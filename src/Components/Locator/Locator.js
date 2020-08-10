@@ -23,7 +23,6 @@ export class Locator extends React.Component{
     let graphDataResults;
     result = await getLocation();
     if (result.success) {
-      console.log(result);
       graphDataResults = await getGraphData({ latitude: result.coord.lat, longitude: result.coord.lon });
     }
     else {
@@ -48,7 +47,6 @@ export class Locator extends React.Component{
           "temperature": ((graphDataResults.hourly[i].temp - 273.15) * 1.8 + 32).toFixed(2)
         }
       }
-      console.log(hourlyData);
 
       newData = {
         city: result.name,
