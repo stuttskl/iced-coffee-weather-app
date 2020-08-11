@@ -12,6 +12,13 @@ import { CurrentWeatherDisplay} from './CurrentWeatherDisplay/CurrentWeatherDisp
 import { Locator } from './Locator/Locator';
 import { AlertBox } from './AlertBox/AlertBox';
 import { SearchBar } from './SearchBar/SearchBar';
+<<<<<<< Updated upstream
+=======
+import { changeTempUnits } from './tempUnitChange';
+import Container from '@material-ui/core/Container';
+import Grid from '@material-ui/core/Grid';
+import Divider from '@material-ui/core/Divider';
+>>>>>>> Stashed changes
 import "../styles/Main.css";
 
 /* One way of styling with Material UI is to use hooks.
@@ -48,9 +55,18 @@ export class Main extends React.Component {
             dailyData: [],
             units: "F",
             loading: true,
-            canLoad: true
+            canLoad: true,
+            tempCurrentlyF: true
         };
         this.stateHandler = this.stateHandler.bind(this);
+    }
+
+    testTempChange() {
+        let tempCurrentlyF = this.state.tempCurrentlyF;
+        if (tempCurrentlyF === true || this.state.units === 'F') {
+            console.log("temperature: ");
+            console.log(changeTempUnits(this.state.units, this.state.temperature));
+        } 
     }
 
     stateHandler(values) {
