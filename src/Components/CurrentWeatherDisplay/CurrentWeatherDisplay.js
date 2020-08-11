@@ -7,6 +7,8 @@ import MuiAlert from '@material-ui/lab/Alert';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import './CurrentWeatherDisplay.css';
 import sun from './sun.png';
+import Icon from '@material-ui/core/Icon';
+
 import { countryCodes } from '../../constants/countrycodes';
 
 function Alert(props) {
@@ -18,8 +20,11 @@ export class CurrentWeatherDisplay extends React.Component{
     super(props);
   }
 
+
   render(){
     let toRender;
+    let iconStyle = "fas fa-sun"
+
     if (!this.props.canLoad) {
       toRender = <React.Fragment>
         <Alert severity="error">Can't load weather data for some reason!</Alert>
@@ -45,7 +50,7 @@ export class CurrentWeatherDisplay extends React.Component{
                     <Typography variant="h5">
                       {((this.props.temperature - 273.15) * 1.8 + 32).toFixed(2)} °F
                     </Typography>
-                    <img src={sun} alt="Icon" id="weather-icon"></img>
+                    <Icon className={iconStyle} style={{fontSize: 50 }} />
                   </Grid>
                   <Typography color="textSecondary">
                     Humidity: {this.props.humidity}%

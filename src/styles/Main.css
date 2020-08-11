@@ -4,6 +4,12 @@
   background-color: #EEE;
 }
 
+#main-view {
+  padding: 10px;
+  text-align: center;
+  background-color: #EEE;
+}
+
 .spacer {
   height: 20px;
 }
@@ -11,4 +17,8 @@
 .graph {
   display: flex;
   justify-content: center;
+}
+
+.alertBox {
+  margin: .5em;
 }

@@ -64,6 +64,11 @@ export class Main extends React.Component {
             <Container maxWidth="lg" id="main-view">
                 <HeaderHook />
                 <SearchBar mainStateHandler={this.stateHandler}/>
+                <div className='alertBox'>
+                    <AlertBox 
+                        temperature={this.state.temperature}
+                    /> 
+                </div>
                 <div className="spacer"></div>
                 <Grid container spacing={3}>
                     <Grid item xs={4}>
@@ -81,10 +86,8 @@ export class Main extends React.Component {
                                 windSpeed = {this.state.windSpeed}
                                 loading = {this.state.loading}
                                 canLoad = {this.state.canLoad}
+                                icontype = 'fas fa-sun'
                             />
-                            <AlertBox 
-                                temperature={this.state.temperature}
-                            /> 
                         </div>
                     </Grid>
                     <Grid item xs={8}>
