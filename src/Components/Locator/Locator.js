@@ -8,9 +8,6 @@ export class Locator extends React.Component{
   constructor(props){
     super(props);
     this.handleDebugClick = this.handleDebugClick.bind(this);
-    this.state = {
-      canLoad: false,
-    }
   }
 
   // Executed upon component appearing in app.
