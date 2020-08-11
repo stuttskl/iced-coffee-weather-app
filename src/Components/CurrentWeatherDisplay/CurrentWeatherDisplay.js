@@ -6,6 +6,7 @@ import { Grid } from '@material-ui/core';
 import MuiAlert from '@material-ui/lab/Alert';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import './CurrentWeatherDisplay.css';
+import Icon from '@material-ui/core/Icon';
 
 function Alert(props) {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
