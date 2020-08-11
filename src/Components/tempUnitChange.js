@@ -1,6 +1,6 @@
 //code to change the temp from kelvin to F and c
 
-/*export const changeTempUnits = (units, tempKelvin) => {
+export const changeTempUnits = (units, tempKelvin) => {
     let newTemp;
     console.log("button clicked");
 
@@ -12,8 +12,8 @@
     }
     return newTemp;
 };
-*/
 
+/*
 function tempUnits() {
     function changeTempUnits(units, tempKelvin) {
         let newTemp;
@@ -35,5 +35,5 @@ function tempUnits() {
         </button>
     );
 }
-
-export default tempUnits;
+*/
+//export default tempUnits;

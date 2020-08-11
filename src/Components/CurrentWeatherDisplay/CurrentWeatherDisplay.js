@@ -15,8 +15,11 @@ const Alert = (props) => {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
 };
 
-<<<<<<< Updated upstream
 export const CurrentWeatherDisplay = (props) => {
+  const onMouseClick = () => {
+    const newUnit = props.units == "F" ? "C" : "F";
+    props.stateHandler({units: newUnit});
+  }
   let toRender;
   const iconStyle = "fas fa-sun";
 
@@ -43,57 +46,10 @@ export const CurrentWeatherDisplay = (props) => {
               <CardContent>
                 <Grid>
                   <Typography variant="h5">
-                    {((props.temperature - 273.15) * 1.8 + 32).toFixed(2)} °F
-=======
-
-export class CurrentWeatherDisplay extends React.Component{
-  constructor(props){
-    super(props);
-  }
-
-
-
-  render(){
-    let toRender;
-    if (!this.props.canLoad) {
-      toRender = <React.Fragment>
-        <Alert severity="error">Can't load weather data for some reason!</Alert>
-      </React.Fragment>
-    }
-    else if (this.props.loading) {
-      toRender = <React.Fragment>
-        <CircularProgress />
-      </React.Fragment>;
-    } 
-    else {
-      toRender = <React.Fragment>
-        <div id='weather-display-main'>
-            <div id="current-conditions">
-              <Typography variant="h5">
-                Current conditions for {this.props.city}, {countryCodes[this.props.country]}
-              </Typography>
-            </div>
-            <div id = "weather-display">
-              <Card>
-                <CardContent>
-                  <Grid>
-                    <Typography variant="h5">
-                      {((this.props.temperature - 273.15) * 1.8 + 32).toFixed(2)} °F
-                      <button onClick={changeTempUnits}>
+                    {changeTempUnits(props.units, props.temperature).toFixed(2)} °F
+                    <button onClick={onMouseClick}>
                         Change units
-                      </button>
-                    </Typography>
-                    <img src={sun} alt="Icon" id="weather-icon"></img>
-                  </Grid>
-                  <Typography color="textSecondary">
-                    Humidity: {this.props.humidity}%
-                  </Typography>
-                  <Typography color="textSecondary">
-                    UV Index: {this.props.uvIndex}
-                  </Typography>
-                  <Typography color="textSecondary">
-                    Wind Speed: {this.props.windSpeed} km/h
->>>>>>> Stashed changes
+                    </button>
                   </Typography>
                   <Icon className={iconStyle} style={{fontSize: 50 }} />
                 </Grid>
