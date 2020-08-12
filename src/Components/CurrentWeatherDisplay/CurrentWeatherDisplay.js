@@ -1,3 +1,4 @@
+import Button from '@material-ui/core/Button';
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import Card from '@material-ui/core/Card';
@@ -9,12 +10,24 @@ import './CurrentWeatherDisplay.css';
 import Icon from '@material-ui/core/Icon';
 
 import { countryCodes } from '../../constants/countrycodes';
+import { changeTempUnits } from '../tempUnitChange';
 
 const Alert = (props) => {
   return <MuiAlert elevation={6} variant="filled" {...props} />;
 };
 
 export const CurrentWeatherDisplay = (props) => {
+  const onMouseClick = () => {
+    console.log("units being changed");
+    const newUnit = props.units == "F" ? "C" : "F";
+    props.stateHandler({units: newUnit});
+    console.log(newUnit);
+    return newUnit;
+  }
+  const displayUnits = () => {
+    const changedUnit = props.units;
+    return changedUnit
+  }
   let toRender;
   let currentTemp = ((props.temperature - 273.15) * 1.8 + 32).toFixed(2)
   // const iconStyle = "fas fa-sun";
@@ -68,12 +81,15 @@ export const CurrentWeatherDisplay = (props) => {
               Current conditions for {props.city}, {countryCodes[props.country]}
             </Typography>
           </div>
+          <Button variant="contained" color="primary" onClick={onMouseClick}>
+              Change Temperature Units
+          </Button>
           <div id = "weather-display">
             <Card>
               <CardContent>
                 <Grid>
                   <Typography variant="h5">
-                    {currentTemp} °F
+                    {changeTempUnits(props.units, props.temperature)} {displayUnits()}
                   </Typography>
                   <Icon className={iconStyle} style={{fontSize: 50 }} />
                 </Grid>

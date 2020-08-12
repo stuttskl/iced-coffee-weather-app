@@ -12,6 +12,8 @@ import { CurrentWeatherDisplay} from './CurrentWeatherDisplay/CurrentWeatherDisp
 import { Locator } from './Locator/Locator';
 import { AlertBox } from './AlertBox/AlertBox';
 import { SearchBar } from './SearchBar/SearchBar';
+import { changeTempUnits } from './tempUnitChange';
+
 import "../styles/Main.css";
 
 /* One way of styling with Material UI is to use hooks.
@@ -49,10 +51,12 @@ export class Main extends React.Component {
             units: "F",
             dt: 22,
             loading: true,
-            canLoad: true
+            canLoad: true,
+            //tempCurrentlyF: true
         };
         this.stateHandler = this.stateHandler.bind(this);
     }
+
 
     stateHandler(values) {
         this.setState(values);
@@ -63,49 +67,52 @@ export class Main extends React.Component {
             <Container maxWidth="lg" id="main-view">
                 <HeaderHook />
                 <SearchBar mainStateHandler={this.stateHandler}/>
-                <div id="main-content">
-                        <AlertBox 
-                            temperature={this.state.temperature}
-                        /> 
-                        <div className="spacer"></div>
-                        <Grid container spacing={3}>
-                            <Grid item xs={4}>
-                                <div className="main-component">
-                                    <Locator 
-                                        stateHandler={this.stateHandler}
-                                    />
-                                    <div className="spacer"></div>
-                                    <CurrentWeatherDisplay 
-                                        city={this.state.city}
-                                        country={this.state.country}
-                                        temperature={this.state.temperature}
-                                        humidity = {this.state.humidity}
-                                        uvIndex = {this.state.uvIndex}
-                                        windSpeed = {this.state.windSpeed}
-                                        dt = {this.state.dt}
-                                        loading = {this.state.loading}
-                                        canLoad = {this.state.canLoad}
-                                        icontype = 'fas fa-sun'
-                                    />
-                                </div>
-                            </Grid>
-                            <Grid item xs={8}>
-                                <div className="main-component">
-                                    <HourGraph 
-                                        hourlyData={this.state.hourlyData} 
-                                        loading = {this.state.loading}
-                                        canLoad = {this.state.canLoad}
-                                    />
-                                    <div className="spacer"></div>
-                                    <ForecastGraph 
-                                        dailyData={this.state.dailyData}
-                                        loading = {this.state.loading}
-                                        canLoad = {this.state.canLoad}
-                                    />
-                                </div>
-                            </Grid>
-                        </Grid>
-                    </div>
+                <div className='alertBox'>
+                    <AlertBox 
+                        temperature={this.state.temperature}
+                    /> 
+                </div>
+                <div className="spacer"></div>
+                <Grid container spacing={3}>
+                    <Grid item xs={4}>
+                        <div className="main-component">
+                            <Locator 
+                                stateHandler={this.stateHandler}
+                            />
+                            <div className="spacer"></div>
+                            <CurrentWeatherDisplay 
+                                city={this.state.city}
+                                country={this.state.country}
+                                temperature={this.state.temperature}
+                                humidity = {this.state.humidity}
+                                uvIndex = {this.state.uvIndex}
+                                windSpeed = {this.state.windSpeed}
+                                loading = {this.state.loading}
+                                canLoad = {this.state.canLoad}
+                                icontype = 'fas fa-sun'
+                                stateHandler = {this.stateHandler}
+                                units = {this.state.units}
+                            />
+                        </div>
+                    </Grid>
+                    <Grid item xs={8}>
+                        <div className="main-component">
+                            <HourGraph 
+                                hourlyData={this.state.hourlyData} 
+                                loading = {this.state.loading}
+                                canLoad = {this.state.canLoad}
+                                units = {this.state.units}
+                            />
+                            <div className="spacer"></div>
+                            <ForecastGraph 
+                                dailyData={this.state.dailyData}
+                                loading = {this.state.loading}
+                                canLoad = {this.state.canLoad}
+                                units = {this.state.units}
+                            />
+                        </div>
+                    </Grid>
+                </Grid>
             </Container>
         );
     } 
