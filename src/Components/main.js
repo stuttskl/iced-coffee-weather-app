@@ -107,6 +107,7 @@ export class Main extends React.Component {
                                 dailyData={this.state.dailyData}
                                 loading = {this.state.loading}
                                 canLoad = {this.state.canLoad}
+                                units = {this.state.units}
                             />
                         </div>
                     </Grid>

@@ -84,6 +84,7 @@ export class SearchBar extends React.Component {
         humidity: result.main.humidity,
         windSpeed: result.wind.speed,
         hourlyData: hourlyData,
+        dailyData: dailyData,
         uvIndex: graphDataResults.current.uvi,
         loading: false,
         canLoad: true
