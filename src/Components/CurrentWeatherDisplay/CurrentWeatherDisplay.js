@@ -26,7 +26,7 @@ export const CurrentWeatherDisplay = (props) => {
   }
   const displayUnits = () => {
     const changedUnit = props.units;
-    return changedUnit
+    return '°'+changedUnit
   }
   let toRender;
   const iconStyle = "fas fa-sun";
