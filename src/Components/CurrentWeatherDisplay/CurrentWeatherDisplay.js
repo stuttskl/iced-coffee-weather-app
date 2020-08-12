@@ -1,8 +1,6 @@
 import Button from '@material-ui/core/Button';
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
-import Card from '@material-ui/core/Card';
-import { CardContent } from '@material-ui/core';
 import { Grid } from '@material-ui/core';
 import MuiAlert from '@material-ui/lab/Alert';
 import CircularProgress from '@material-ui/core/CircularProgress';
@@ -32,7 +30,7 @@ export const CurrentWeatherDisplay = (props) => {
   }
   let toRender;
   let currentTemp = ((props.temperature - 273.15) * 1.8 + 32).toFixed(2)
-  let datetime = Moment.unix(props.dt).format('h:mm A')
+  // let datetime = Moment.unix(props.dt).format('h A')
   let alert = ''
   let iconStyle = ''
     if(currentTemp > 96) {
@@ -73,35 +71,31 @@ export const CurrentWeatherDisplay = (props) => {
       <div id='weather-display-main'>
           <div id="current-conditions">
             <Typography variant="h5">
-              Current conditions for {props.city}, {countryCodes[props.country]}
+              Currently in {props.city}, {countryCodes[props.country]}
             </Typography>
           </div>
-          <Button variant="contained" color="primary" onClick={onMouseClick}>
-              Change Temperature Units
-          </Button>
           <div id = "weather-display">
-            <Card>
-              <CardContent>
-                <Grid>
-                  <Typography variant="h4">
-                    {changeTempUnits(props.units, props.temperature)} {displayUnits()}
-                  </Typography>
-                  <Typography variant="h5">
-                    {datetime}
-                  </Typography>
-                  <Icon className={iconStyle} style={{fontSize: 50 }} />
-                </Grid>
-                <Typography color="textSecondary">
-                  Humidity: {props.humidity}%
-                </Typography>
-                <Typography color="textSecondary">
-                  UV Index: {props.uvIndex}
-                </Typography>
-                <Typography color="textSecondary">
-                  Wind Speed: {props.windSpeed} km/h
-                </Typography>
-              </CardContent>
-            </Card>
+            <Grid>
+              <Typography variant="h4">
+                {changeTempUnits(props.units, props.temperature)} {displayUnits()}
+              </Typography>
+              <Typography variant="h5">
+                {datetime}
+              </Typography>
+              <Icon className={iconStyle} style={{fontSize: 50 }} />
+            </Grid>
+            <Typography color="textSecondary">
+              Humidity: {props.humidity}%
+            </Typography>
+            <Typography color="textSecondary">
+              UV Index: {props.uvIndex}
+            </Typography>
+            <Typography color="textSecondary">
+              Wind Speed: {props.windSpeed} km/h
+            </Typography>
+            <Button variant="contained" color="primary" onClick={onMouseClick}>
+              Change Temperature Units
+            </Button>
           </div>
       </div>
     </React.Fragment>;

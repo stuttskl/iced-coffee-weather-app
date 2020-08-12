@@ -4,6 +4,8 @@ import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
+import Moment from 'moment';
+
 
 // Dependencies created by our group
 import { mainStyles } from '../styles/styles';
@@ -65,20 +67,23 @@ export class Main extends React.Component {
             sunset: 2,
             loading: true,
             canLoad: true,
-            backgroundColor: 'green'
             //tempCurrentlyF: true
         };
         this.stateHandler = this.stateHandler.bind(this);
     }
-
+    // 1697289196
     // kind of a hacky way to conditionally change the background color
-    componentDidUpdate() {
-        const color = this.state.dt > this.state.sunrise
-            ? 'linear-gradient(#FDC18F, #FDB790, #FEAC8F)'
-            : this.state.dt > this.state.sunset
-                 'linear-gradient(#7DB6C4, #759BB5, #6E789F)'
+    componentDidUpdate() {     
+        let color = ''
+        if(this.state.dt > this.state.sunrise) {
+            color = 'linear-gradient(#FDC18F, #FDB790, #FEAC8F)'
+        } else if(this.state.dt > this.state.sunset) {
+            color = 'linear-gradient(#7DB6C4, #759BB5, #6E789F)'
+        } else {
+            color = 'linear-gradient(#A08EAD, #8472A9, #6B58A3)'
+        }
                 
-        document.body.style = `background-image: ${color};`;
+        document.body.style = `background: ${color};`;
     }
 
     stateHandler(values) {

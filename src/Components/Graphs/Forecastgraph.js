@@ -54,8 +54,8 @@ export class ForecastGraph extends React.Component {
                         <YAxis label={{ value: '°'+ this.props.units, angle: -90, position: 'insideLeft' }} />
                         <Tooltip />
                         <Legend />
-                        <Bar dataKey="High" fill="#fcb103" />
-                        <Bar dataKey="Low" fill="#03adfc" />
+                        <Bar dataKey="High" fill="#ff9d00" />
+                        <Bar dataKey="Low" fill="#6da2f7" />
                     </BarChart>
                 </Grid>
             </Grid>
