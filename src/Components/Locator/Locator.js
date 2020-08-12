@@ -1,9 +1,9 @@
 import Button from '@material-ui/core/Button';
 import React from 'react';
-import Moment from 'moment';
 
 import { getLocation, getWeatherFromLocation } from '../../location/getLocation';
 import { getGraphData } from '../Graphs/getGraphData';
+import { formatHourlyData, formatDailyData } from '../Graphs/graphFormat';
 
 export class Locator extends React.Component{
   constructor(props){
@@ -40,23 +40,8 @@ export class Locator extends React.Component{
     let newData;
     if (result.success === true && graphDataResults.success === true) {
 
-      let hourlyData = [];
-      for (let i=0; i < 24; i++){
-        hourlyData[i] = {
-          "time": Moment(graphDataResults.hourly[i].dt * 1000).format('hh:mm A'),
-          "temperature": ((graphDataResults.hourly[i].temp - 273.15) * 1.8 + 32).toFixed(2)
-        }
-      }
-
-      let dailyData = [];
-      for (let i=0; i < 8; i++){
-        dailyData[i] = {
-          "Day": Moment(graphDataResults.daily[i].dt * 1000).format('dddd').slice(0, 3),
-          "High": ((graphDataResults.daily[i].temp.max - 273.15) * 1.8 + 32).toFixed(2),
-          "Low": ((graphDataResults.daily[i].temp.min - 273.15) * 1.8 + 32).toFixed(2)
-        }
-      }
-      console.log(dailyData);
+      const hourlyData = formatHourlyData(graphDataResults.hourly);
+      const dailyData = formatDailyData(graphDataResults.daily);
 
       newData = {
         city: result.name,
@@ -66,6 +51,7 @@ export class Locator extends React.Component{
         windSpeed: result.wind.speed,
         hourlyData: hourlyData,
         dailyData: dailyData,
+        uvIndex: graphDataResults.current.uvi,
         loading: false,
         canLoad: true
       }
