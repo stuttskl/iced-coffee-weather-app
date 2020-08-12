@@ -10,7 +10,7 @@ export const changeTempUnits = (units, tempKelvin) => {
     else {
         newTemp = (tempKelvin - 273.15) * 9/5 + 32;
     }
-    return newTemp;
+    return Number(newTemp).toFixed(2);
 };
 
 /*

@@ -100,6 +100,7 @@ export class Main extends React.Component {
                                 hourlyData={this.state.hourlyData} 
                                 loading = {this.state.loading}
                                 canLoad = {this.state.canLoad}
+                                units = {this.state.units}
                             />
                             <div className="spacer"></div>
                             <ForecastGraph 

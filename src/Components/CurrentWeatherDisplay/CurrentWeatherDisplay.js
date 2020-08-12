@@ -57,7 +57,7 @@ export const CurrentWeatherDisplay = (props) => {
               <CardContent>
                 <Grid>
                   <Typography variant="h5">
-                    {changeTempUnits(props.units, props.temperature).toFixed(2)} {displayUnits()}
+                    {changeTempUnits(props.units, props.temperature)} {displayUnits()}
                   </Typography>
                   <Icon className={iconStyle} style={{fontSize: 50 }} />
                 </Grid>

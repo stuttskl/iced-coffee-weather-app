@@ -41,7 +41,7 @@ export class ForecastGraph extends React.Component {
                     <BarChart width={730} height={250} data={this.props.dailyData} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
                     <CartesianGrid strokeDasharray="3 3" />
                         <XAxis dataKey="Day" />
-                        <YAxis label={{ value: '°F', angle: -90, position: 'insideLeft' }} />
+                        <YAxis label={{ value: '°'+ this.props.units, angle: -90, position: 'insideLeft' }} />
                         <Tooltip />
                         <Legend />
                         <Bar dataKey="High" fill="#fcb103" />
