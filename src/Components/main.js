@@ -6,7 +6,7 @@ import Grid from '@material-ui/core/Grid';
 
 // Dependencies created by our group
 import { mainStyles } from '../styles/styles';
-import { HourGraph } from './Graphs/Hourgraph';
+import { HourGraph } from './Graphs/HourGraph';
 import { ForecastGraph } from './Graphs/ForecastGraph';
 import { CurrentWeatherDisplay} from './CurrentWeatherDisplay/CurrentWeatherDisplay';
 import { Locator } from './Locator/Locator';
