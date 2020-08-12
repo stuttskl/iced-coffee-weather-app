@@ -1,3 +1,4 @@
+import Button from '@material-ui/core/Button';
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import Card from '@material-ui/core/Card';
@@ -48,15 +49,15 @@ export const CurrentWeatherDisplay = (props) => {
               Current conditions for {props.city}, {countryCodes[props.country]}
             </Typography>
           </div>
+          <Button variant="contained" color="primary" onClick={onMouseClick}>
+                        Change Temperature Units
+                    </Button>
           <div id = "weather-display">
             <Card>
               <CardContent>
                 <Grid>
                   <Typography variant="h5">
                     {changeTempUnits(props.units, props.temperature).toFixed(2)} {displayUnits()}
-                    <button onClick={onMouseClick}>
-                        Change units
-                    </button>
                   </Typography>
                   <Icon className={iconStyle} style={{fontSize: 50 }} />
                 </Grid>
