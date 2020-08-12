@@ -16,7 +16,39 @@ const Alert = (props) => {
 
 export const CurrentWeatherDisplay = (props) => {
   let toRender;
-  const iconStyle = "fas fa-sun";
+  let currentTemp = ((props.temperature - 273.15) * 1.8 + 32).toFixed(2)
+  // const iconStyle = "fas fa-sun";
+  let alert = ''
+  let severity = ''
+  let iconStyle = ''
+    if(currentTemp > 96) {
+      alert = "It's HOT outside. Try to stay in AC room if you can.";
+      severity = "error";
+      iconStyle = "fas fa-temperature-high";
+    } else if(currentTemp >= 75 && currentTemp <= 95) {
+      alert = "Don't forget your sunscreen!";
+      severity = "warning";
+      iconStyle = "fas fa-umbrella-beach";
+    }  else if(currentTemp >= 60 && currentTemp <= 74) {
+      alert = "It's pretty temperate outside. Stay in, go out, either way -- have fun!";
+      severity = "success";
+      iconStyle = "fas fa-sun";
+    } else if(currentTemp >= 42 && currentTemp <= 59) {
+      alert = "It might be a little chilly outside. You may want to grab a sweater!";
+      severity = "info";  
+      iconStyle = "fas fa-cloud-sun";
+    } else if (currentTemp >= 33) {
+      alert = "It's pretty cold outside. I'd stay in if you can.";
+      severity = "info";
+      iconStyle = "far fa-snowflake";
+    } else if (currentTemp <= 32) {
+      alert = "It's literally freezing. Go grab a warm cup of coffee :)";
+      severity = "info";
+      iconStyle = "far fa-snowflake";
+    } else {
+      alert = "I'm sorry, cannot retrieve weather tip information for some reason."
+      iconStyle = "fas fa-coffee";
+    }
 
   if (!props.canLoad) {
     toRender = <React.Fragment>
@@ -41,7 +73,7 @@ export const CurrentWeatherDisplay = (props) => {
               <CardContent>
                 <Grid>
                   <Typography variant="h5">
-                    {((props.temperature - 273.15) * 1.8 + 32).toFixed(2)} °F
+                    {currentTemp} °F
                   </Typography>
                   <Icon className={iconStyle} style={{fontSize: 50 }} />
                 </Grid>
@@ -53,6 +85,9 @@ export const CurrentWeatherDisplay = (props) => {
                 </Typography>
                 <Typography color="textSecondary">
                   Wind Speed: {props.windSpeed} km/h
+                </Typography>
+                <Typography color="textSecondary">
+                  Date Time?: {props.dt} 
                 </Typography>
               </CardContent>
             </Card>

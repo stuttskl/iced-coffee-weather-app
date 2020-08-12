@@ -17,6 +17,7 @@ router.get("/", function(req,res) {
     axios.get(url)
       .then(function(response) {
         res.send(response.data);
+        console.log(response.data.dt)
       })
       //catch error
       .catch(function(error) {

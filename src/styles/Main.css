@@ -1,13 +1,20 @@
+
 .main-component {
   padding: 10px;
   text-align: center;
-  background-color: #EEE;
+  /* background-image:  linear-gradient(#FDC18F, #FDB790, #FEAC8F); */
 }
 
 #main-view {
   padding: 10px;
   text-align: center;
-  background-color: #EEE;
+  background-image:  linear-gradient(#FDC18F, #FDB790, #FEAC8F);
+}
+
+#main-content {
+  background-color: rgba(255, 255, 255, 0.2);
+  margin-top: 3em;
+  padding: 1em;
 }
 
 .spacer {
