@@ -13,7 +13,8 @@ router.get("/", function(req,res) {
 
   if (req.query.value) {
     formattedQuery = city + "," + state + "," + country;
-    axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${formattedQuery}&appid=${process.env.WEATHER_API_KEY}`)
+    let url = encodeURI(`https://api.openweathermap.org/data/2.5/weather?q=${formattedQuery}&appid=${process.env.WEATHER_API_KEY}`);
+    axios.get(url)
       .then(function(response) {
         res.send(response.data);
       })
