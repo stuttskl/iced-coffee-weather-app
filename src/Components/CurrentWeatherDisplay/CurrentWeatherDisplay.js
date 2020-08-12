@@ -17,8 +17,15 @@ const Alert = (props) => {
 
 export const CurrentWeatherDisplay = (props) => {
   const onMouseClick = () => {
+    console.log("units being changed");
     const newUnit = props.units == "F" ? "C" : "F";
     props.stateHandler({units: newUnit});
+    console.log(newUnit);
+    return newUnit;
+  }
+  const displayUnits = () => {
+    const changedUnit = props.units;
+    return changedUnit
   }
   let toRender;
   const iconStyle = "fas fa-sun";
@@ -46,7 +53,7 @@ export const CurrentWeatherDisplay = (props) => {
               <CardContent>
                 <Grid>
                   <Typography variant="h5">
-                    {changeTempUnits(props.units, props.temperature).toFixed(2)} °F
+                    {changeTempUnits(props.units, props.temperature).toFixed(2)} {displayUnits()}
                     <button onClick={onMouseClick}>
                         Change units
                     </button>

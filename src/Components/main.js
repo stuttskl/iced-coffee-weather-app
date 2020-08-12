@@ -51,7 +51,7 @@ export class Main extends React.Component {
             units: "F",
             loading: true,
             canLoad: true,
-            tempCurrentlyF: true
+            //tempCurrentlyF: true
         };
         this.stateHandler = this.stateHandler.bind(this);
     }
@@ -90,6 +90,7 @@ export class Main extends React.Component {
                                 canLoad = {this.state.canLoad}
                                 icontype = 'fas fa-sun'
                                 stateHandler = {this.stateHandler}
+                                units = {this.state.units}
                             />
                         </div>
                     </Grid>
