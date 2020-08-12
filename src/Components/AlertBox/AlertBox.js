@@ -40,7 +40,7 @@ export const AlertBox = props => {
   return (
     <div>
       {/* <Icon className={iconType} style={{ fontSize: 40 }} /> */}
-      <h3>{alert}</h3>
+      <h1>Weather Roasters Alert: {alert}</h1>
     </div>
   )
 }
