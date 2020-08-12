@@ -50,8 +50,8 @@ export const CurrentWeatherDisplay = (props) => {
             </Typography>
           </div>
           <Button variant="contained" color="primary" onClick={onMouseClick}>
-                        Change Temperature Units
-                    </Button>
+              Change Temperature Units
+          </Button>
           <div id = "weather-display">
             <Card>
               <CardContent>
