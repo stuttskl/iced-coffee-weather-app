@@ -6,6 +6,7 @@ import { getSuggestions, Suggestions } from './Suggestions';
 import { parseInput } from './parseInput';
 import { getLocationAndWeatherFromCity } from '../../location/getLocation';
 import { getGraphData } from '../Graphs/getGraphData';
+import { formatHourlyData, formatDailyData } from '../Graphs/graphFormat';
 
 export class SearchBar extends React.Component {
   constructor(props) {
@@ -73,14 +74,8 @@ export class SearchBar extends React.Component {
     let newData;
     if (result.success === true && graphDataResults.success === true) {
 
-      let hourlyData = [];
-      for (let i=0; i < 24; i++){
-        hourlyData[i] = {
-          "time": graphDataResults.hourly[i].dt,
-          "temperature": graphDataResults.hourly[i].temp
-        }
-      }
-      console.log(hourlyData);
+      const hourlyData = formatHourlyData(graphDataResults.hourly);
+      const dailyData = formatDailyData(graphDataResults.daily);
 
       newData = {
         city: result.name,
@@ -89,6 +84,7 @@ export class SearchBar extends React.Component {
         humidity: result.main.humidity,
         windSpeed: result.wind.speed,
         hourlyData: hourlyData,
+        uvIndex: graphDataResults.current.uvi,
         loading: false,
         canLoad: true
       }
