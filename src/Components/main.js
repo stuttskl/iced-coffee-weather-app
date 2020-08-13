@@ -51,7 +51,6 @@ export class Main extends React.Component {
             units: "F",
             loading: true,
             canLoad: true,
-            //tempCurrentlyF: true
         };
         this.stateHandler = this.stateHandler.bind(this);
     }
