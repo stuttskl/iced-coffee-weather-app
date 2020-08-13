@@ -71,7 +71,7 @@ export class Main extends React.Component {
         };
         this.stateHandler = this.stateHandler.bind(this);
     }
-    // 1697289196
+
     // kind of a hacky way to conditionally change the background color
     componentDidUpdate() {     
         let color = ''

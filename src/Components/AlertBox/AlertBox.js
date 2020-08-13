@@ -10,8 +10,6 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 export const AlertBox = props => {
   const currentTemp = ((props.temperature - 273.15) * 1.8 + 32).toFixed(2);
   
-
-  let toRender;
   let alert = ''
   let iconType = ''
     if(currentTemp > 96) {
@@ -39,7 +37,7 @@ export const AlertBox = props => {
   
   return (
     <div>
-      {/* <Icon className={iconType} style={{ fontSize: 40 }} /> */}
+      <Icon className={iconType} style={{ fontSize: 40 }} />
       <h1>Weather Roasters Alert: {alert}</h1>
     </div>
   )

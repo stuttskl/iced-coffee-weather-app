@@ -2,7 +2,7 @@
 
 export const changeTempUnits = (units, tempKelvin) => {
     let newTemp;
-    console.log("button clicked");
+    // console.log("button clicked");
 
     if(units == 'C') {
         newTemp = tempKelvin - 273.15;

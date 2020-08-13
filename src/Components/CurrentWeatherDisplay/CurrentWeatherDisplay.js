@@ -8,7 +8,6 @@ import './CurrentWeatherDisplay.css';
 import Icon from '@material-ui/core/Icon';
 import Moment from 'moment';
 
-
 import { countryCodes } from '../../constants/countrycodes';
 import { changeTempUnits } from '../tempUnitChange';
 
@@ -30,31 +29,31 @@ export const CurrentWeatherDisplay = (props) => {
   }
   let toRender;
   let currentTemp = ((props.temperature - 273.15) * 1.8 + 32).toFixed(2)
-  // let datetime = Moment.unix(props.dt).format('h A')
+  let datetime = Moment.unix(props.dt).format('HH:mm')
   let alert = ''
   let iconStyle = ''
-    if(currentTemp > 96) {
-      alert = "It's HOT outside. Try to stay in AC room if you can.";
-      iconStyle = "fas fa-temperature-high";
-    } else if(currentTemp >= 75 && currentTemp <= 95) {
-      alert = "Don't forget your sunscreen!";
-      iconStyle = "fas fa-umbrella-beach";
-    }  else if(currentTemp >= 60 && currentTemp <= 74) {
-      alert = "It's pretty temperate outside. Stay in, go out, either way -- have fun!";
-      iconStyle = "fas fa-sun";
-    } else if(currentTemp >= 42 && currentTemp <= 59) {
-      alert = "It might be a little chilly outside. You may want to grab a sweater!";
-      iconStyle = "fas fa-cloud-sun";
-    } else if (currentTemp >= 33) {
-      alert = "It's pretty cold outside. I'd stay in if you can.";
-      iconStyle = "far fa-snowflake";
-    } else if (currentTemp <= 32) {
-      alert = "It's literally freezing. Go grab a warm cup of coffee :)";
-      iconStyle = "far fa-snowflake";
-    } else {
-      alert = "I'm sorry, cannot retrieve weather tip information for some reason."
-      iconStyle = "fas fa-coffee";
-    }
+  if(currentTemp > 96) {
+    alert = "It's HOT outside. Try to stay in AC room if you can.";
+    iconStyle = "fas fa-temperature-high";
+  } else if(currentTemp >= 75 && currentTemp <= 95) {
+    alert = "Don't forget your sunscreen!";
+    iconStyle = "fas fa-umbrella-beach";
+  }  else if(currentTemp >= 60 && currentTemp <= 74) {
+    alert = "It's pretty temperate outside. Stay in, go out, either way -- have fun!";
+    iconStyle = "fas fa-sun";
+  } else if(currentTemp >= 42 && currentTemp <= 59) {
+    alert = "It might be a little chilly outside. You may want to grab a sweater!";
+    iconStyle = "fas fa-cloud-sun";
+  } else if (currentTemp >= 33) {
+    alert = "It's pretty cold outside. I'd stay in if you can.";
+    iconStyle = "far fa-snowflake";
+  } else if (currentTemp <= 32) {
+    alert = "It's literally freezing. Go grab a warm cup of coffee :)";
+    iconStyle = "far fa-snowflake";
+  } else {
+    alert = "I'm sorry, cannot retrieve weather tip information for some reason."
+    iconStyle = "fas fa-coffee";
+  }
 
   if (!props.canLoad) {
     toRender = <React.Fragment>
@@ -79,9 +78,9 @@ export const CurrentWeatherDisplay = (props) => {
               <Typography variant="h4">
                 {changeTempUnits(props.units, props.temperature)} {displayUnits()}
               </Typography>
-              <Typography variant="h5">
+              {/* <Typography variant="h5">
                 {datetime}
-              </Typography>
+              </Typography> */}
               <Icon className={iconStyle} style={{fontSize: 50 }} />
             </Grid>
             <Typography color="textSecondary">
