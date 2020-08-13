@@ -52,6 +52,8 @@ export class Locator extends React.Component{
         hourlyData: hourlyData,
         dailyData: dailyData,
         uvIndex: graphDataResults.current.uvi,
+        icon: result.weather[0].icon,
+        description: result.weather[0].description,
         dt: result.dt,
         sunrise: result.sys.sunrise,
         sunset: result.sys.sunset,
