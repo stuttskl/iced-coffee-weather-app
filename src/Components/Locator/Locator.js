@@ -52,6 +52,9 @@ export class Locator extends React.Component{
         hourlyData: hourlyData,
         dailyData: dailyData,
         uvIndex: graphDataResults.current.uvi,
+        dt: result.dt,
+        sunrise: result.sys.sunrise,
+        sunset: result.sys.sunset,
         loading: false,
         canLoad: true
       }
@@ -61,6 +64,7 @@ export class Locator extends React.Component{
         canLoad: false
       }
     }
+    console.log(newData);
     this.props.stateHandler(newData);
   }
 

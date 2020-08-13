@@ -6,6 +6,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import {
     LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip,
   } from 'recharts';
+import { changeTempUnits } from '../tempUnitChange';
 
 function Alert(props) {
 return <MuiAlert elevation={6} variant="filled" {...props} />;
@@ -29,6 +30,17 @@ export class HourGraph extends React.Component {
       </React.Fragment>;
     } 
     else {
+      const units = this.props.units;
+      const formattedData = this.props.hourlyData.map(function(temp){
+        console.log(temp);
+        return {
+          "time": temp.time,
+          "temperature": changeTempUnits(units, temp.temperature)
+        }
+      });
+
+      console.log(formattedData);
+
       toRender = <React.Fragment>
         <div className="graph">
             <Grid container spacing={2} justify="center">
@@ -38,12 +50,12 @@ export class HourGraph extends React.Component {
                 </Typography>
                 </Grid>
                 <Grid item xs={12} >
-                <LineChart width={730} height={250} data={this.props.hourlyData}>
+                <LineChart width={730} height={250} data={formattedData}>
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis dataKey="time" />
-                    <YAxis label={{ value: '°F', angle: -90, position: 'insideLeft' }} />
+                    <YAxis label={{ value: '°'+ this.props.units, angle: -90, position: 'insideLeft' }} />
                     <Tooltip />
-                    <Line type="monotone" dataKey="temperature" stroke="#8884d8" />
+                    <Line type="monotone" dataKey="temperature" stroke="#000" />
                 </LineChart>
                 </Grid>
             </Grid>
