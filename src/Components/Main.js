@@ -65,7 +65,6 @@ export class Main extends React.Component {
             sunset: 2,
             loading: true,
             canLoad: true,
-            //tempCurrentlyF: true
         };
         this.stateHandler = this.stateHandler.bind(this);
     }
