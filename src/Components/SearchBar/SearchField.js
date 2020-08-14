@@ -18,7 +18,7 @@ export const SearchField = (props) => {
 
   return (
     <form id="search-form" noValidate autoComplete="off" onSubmit={handleSubmit}>
-      <TextField id="outlined-basic" label="Enter City Name" variant="outlined" fullWidth onChange={handleChange}/>
+      <TextField id="outlined-basic" label="Enter City Name" variant="filled" fullWidth onChange={handleChange}/>
     </form>
   );
 };
