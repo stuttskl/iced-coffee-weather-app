@@ -44,7 +44,7 @@ export const AlertBox = props => {
     else {
       toRender = <React.Fragment>
           <div>
-            <h1>{greeting}, {alert}</h1>
+            <h1>ALERT!: {greeting}, {alert}</h1>
           </div>
       </React.Fragment>;
     }
