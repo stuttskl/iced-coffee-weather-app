@@ -1,7 +1,7 @@
 {
-  "name": "react-express-template",
+  "name": "weather-roasters",
   "version": "1.0.0",
-  "description": "A simple Express server app that serves a simple React app",
+  "description": "Current weather conditions and forecasts served to you!",
   "main": "server.js",
   "dependencies": {
     "@babel/plugin-transform-runtime": "^7.10.5",
@@ -19,7 +19,8 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "recharts": "^1.8.5",
-    "url-loader": "^4.1.0"
+    "url-loader": "^4.1.0",
+    "webpack-merge": "^5.1.1"
   },
   "devDependencies": {
     "@babel/cli": "^7.10.4",
@@ -36,10 +37,13 @@
     "webpack-dev-server": "^3.11.0"
   },
   "scripts": {
-    "start": "nodemon --exec babel-node server.js --ignore 'src'",
+    "start": "node server.js",
+    "start-watch": "nodemon --exec babel-node server.js --ignore 'src'",
     "simple-run": "babel-node server.js",
-    "build": "webpack --mode development",
-    "build-watch": "webpack --watch --mode development"
+    "build": "webpack --mode development --config webpack.dev.js",
+    "build-watch": "webpack --watch --mode development --config webpack.dev.js",
+    "build-prod": "webpack --config webpack.prod.js",
+    "heroku-postbuild": "webpack --config webpack.prod.js"
   },
   "repository": {
     "type": "git",
