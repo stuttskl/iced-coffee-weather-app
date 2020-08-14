@@ -55,7 +55,7 @@ export class HourGraph extends React.Component {
                     <XAxis dataKey="time" />
                     <YAxis label={{ value: '°'+ this.props.units, angle: -90, position: 'insideLeft' }} />
                     <Tooltip />
-                    <Line type="monotone" dataKey="temperature" stroke="#8884d8" />
+                    <Line type="monotone" dataKey="temperature" stroke="#000" />
                 </LineChart>
                 </Grid>
             </Grid>

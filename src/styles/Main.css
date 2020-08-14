@@ -1,13 +1,18 @@
+
 .main-component {
   padding: 10px;
   text-align: center;
-  background-color: #EEE;
 }
 
 #main-view {
   padding: 10px;
   text-align: center;
-  background-color: #EEE;
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+#main-content {
+  margin-top: 3em;
+  padding: 1em;
 }
 
 .spacer {
