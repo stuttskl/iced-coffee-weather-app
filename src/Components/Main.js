@@ -64,7 +64,6 @@ export class Main extends React.Component {
             description: 'raining',
             loading: true,
             canLoad: true,
-            //tempCurrentlyF: true
         };
         this.stateHandler = this.stateHandler.bind(this);
     }

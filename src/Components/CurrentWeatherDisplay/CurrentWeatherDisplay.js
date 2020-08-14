@@ -15,15 +15,13 @@ const Alert = (props) => {
 
 export const CurrentWeatherDisplay = (props) => {
   const onMouseClick = () => {
-    console.log("units being changed");
     const newUnit = props.units == "F" ? "C" : "F";
     props.stateHandler({units: newUnit});
-    console.log(newUnit);
     return newUnit;
   }
   const displayUnits = () => {
     const changedUnit = props.units;
-    return changedUnit
+    return '°'+changedUnit
   }
   let icon = `http://openweathermap.org/img/wn/${props.icon}@2x.png`;
   let toRender;
