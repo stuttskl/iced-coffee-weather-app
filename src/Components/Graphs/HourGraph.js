@@ -32,14 +32,11 @@ export class HourGraph extends React.Component {
     else {
       const units = this.props.units;
       const formattedData = this.props.hourlyData.map(function(temp){
-        console.log(temp);
         return {
           "time": temp.time,
           "temperature": changeTempUnits(units, temp.temperature)
         }
       });
-
-      console.log(formattedData);
 
       toRender = <React.Fragment>
         <div className="graph">
