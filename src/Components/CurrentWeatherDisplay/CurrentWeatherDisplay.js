@@ -47,7 +47,7 @@ export const CurrentWeatherDisplay = (props) => {
           <div id = "weather-display">
             <Grid>
               <Typography variant="h4">
-                {changeTempUnits(props.units, props.temperature)}° {displayUnits()}
+                {changeTempUnits(props.units, props.temperature)} {displayUnits()}
               </Typography>
               <img src={icon}></img>
             </Grid>
