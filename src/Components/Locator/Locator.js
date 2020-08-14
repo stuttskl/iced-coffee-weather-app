@@ -80,7 +80,7 @@ export class Locator extends React.Component{
     return(
       <React.Fragment>
         <Button variant="contained" color="primary" onClick={this.handleDebugClick}>
-          Debug - Get Location
+          Get Your Location
         </Button>
       </React.Fragment>
     );

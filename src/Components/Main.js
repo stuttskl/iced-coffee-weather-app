@@ -5,7 +5,6 @@ import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
 
-
 // Dependencies created by our group
 import { mainStyles } from '../styles/styles';
 import { HourGraph } from './Graphs/HourGraph';
@@ -65,7 +64,6 @@ export class Main extends React.Component {
             description: 'raining',
             loading: true,
             canLoad: true,
-            //tempCurrentlyF: true
         };
         this.stateHandler = this.stateHandler.bind(this);
     }

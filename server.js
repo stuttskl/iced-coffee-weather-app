@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const apiRoutes = require("./routes/APIcall");
 const cityLookupRoutes = require('./routes/CityLookup');
 require('dotenv').config();
-const DEFAULT_PORT = 3000;
+const DEFAULT_PORT = process.env.PORT || 3000; // Heroku uses a dynamic port.
 let portNumber  = DEFAULT_PORT;
 let app = express();
 
