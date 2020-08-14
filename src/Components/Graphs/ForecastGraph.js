@@ -53,7 +53,7 @@ export class ForecastGraph extends React.Component {
                         <XAxis dataKey="Day" />
                         <YAxis label={{ value: '°'+ this.props.units, angle: -90, position: 'insideLeft' }} 
                         type="number" 
-                        domain={[dataMin => (Math.ceil((dataMin-30)/10) * 10) , dataMax => (Math.ceil((dataMax + 20) / 10)* 10)]} 
+                        domain={[dataMin => (Math.ceil((dataMin-30)/20) * 20) , dataMax => (Math.ceil((dataMax + 20) / 10)* 10)]} 
                         />
                         <Tooltip />
                         <Legend />
