@@ -64,7 +64,6 @@ export class SearchBar extends React.Component {
 
     result = await getLocationAndWeatherFromCity(query);
     if (result.success) {
-      console.log(result);
       graphDataResults = await getGraphData({ latitude: result.coord.lat, longitude: result.coord.lon });
     }
     else {

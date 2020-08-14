@@ -6,7 +6,6 @@ export const parseInput = (rawString) => {
   let values = rawString.toString().split(',').map(value => value.trim());
   values = values.filter(value => value.length > 0);
 
-  console.log(values);
   if (values.length == 2) {
     // Check to see if we have a country code for the input
     let country = countryKeys.filter(key => key.toLowerCase().startsWith(values[1].toLowerCase()));

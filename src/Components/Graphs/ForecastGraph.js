@@ -51,11 +51,14 @@ export class ForecastGraph extends React.Component {
                     <BarChart width={730} height={250} data={formattedData} margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
                     <CartesianGrid strokeDasharray="3 3" />
                         <XAxis dataKey="Day" />
-                        <YAxis label={{ value: '°'+ this.props.units, angle: -90, position: 'insideLeft' }} />
+                        <YAxis label={{ value: '°'+ this.props.units, angle: -90, position: 'insideLeft' }} 
+                        type="number" 
+                        domain={[dataMin => (Math.ceil((dataMin-30)/20) * 20) , dataMax => (Math.ceil((dataMax + 20) / 10)* 10)]} 
+                        />
                         <Tooltip />
                         <Legend />
-                        <Bar dataKey="High" fill="#ff9d00" />
-                        <Bar dataKey="Low" fill="#6da2f7" />
+                        <Bar dataKey="Low" fill="#03adfc" />
+                        <Bar dataKey="High" fill="#fcb103" />
                     </BarChart>
                 </Grid>
             </Grid>
