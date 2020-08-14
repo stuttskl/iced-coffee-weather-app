@@ -4,7 +4,10 @@ import { makeStyles } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import Container from '@material-ui/core/Container';
 import Grid from '@material-ui/core/Grid';
+<<<<<<< HEAD:src/Components/main.js
 
+=======
+>>>>>>> e2052ff9707ce2312fee8f46720fdbcda6e6aba4:src/Components/Main.js
 
 // Dependencies created by our group
 import { mainStyles } from '../styles/styles';
