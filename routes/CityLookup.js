@@ -5,9 +5,7 @@ const router = express.Router();
 const cityData = JSON.parse(fs.readFileSync('places.json'));
 
 router.get("/", function(req,res) {
-  console.log(req.query);
   const value = req.query.value
-  
   
   if (value && value != "") {
     const toCheck = value.toString().toLowerCase();
@@ -26,7 +24,6 @@ router.get("/", function(req,res) {
       })
       .splice(0, 6);
   
-    console.log(JSON.stringify(arrayToSend));
     res.send(JSON.stringify(arrayToSend));
   }
   else {

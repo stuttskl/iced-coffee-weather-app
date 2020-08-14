@@ -32,14 +32,11 @@ export class HourGraph extends React.Component {
     else {
       const units = this.props.units;
       const formattedData = this.props.hourlyData.map(function(temp){
-        console.log(temp);
         return {
           "time": temp.time,
           "temperature": changeTempUnits(units, temp.temperature)
         }
       });
-
-      console.log(formattedData);
 
       toRender = <React.Fragment>
         <div className="graph">
@@ -53,7 +50,10 @@ export class HourGraph extends React.Component {
                 <LineChart width={730} height={250} data={formattedData}>
                     <CartesianGrid strokeDasharray="3 3" />
                     <XAxis dataKey="time" />
-                    <YAxis label={{ value: '°'+ this.props.units, angle: -90, position: 'insideLeft' }} />
+                    <YAxis label={{ value: '°'+ this.props.units, angle: -90, position: 'insideLeft' }} 
+                    type="number" 
+                    domain={[dataMin => (Math.ceil((dataMin-30)/10) * 10) , dataMax => (Math.ceil((dataMax + 20) / 10)* 10)]} 
+                    />
                     <Tooltip />
                     <Line type="monotone" dataKey="temperature" stroke="#000" />
                 </LineChart>

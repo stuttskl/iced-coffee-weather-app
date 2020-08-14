@@ -66,7 +66,6 @@ export class Locator extends React.Component{
         canLoad: false
       }
     }
-    console.log(newData);
     this.props.stateHandler(newData);
   }
 
