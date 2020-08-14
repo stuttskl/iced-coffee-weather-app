@@ -60,9 +60,8 @@ export class Main extends React.Component {
             hourlyData: [],
             dailyData: [],
             units: "F",
-            dt: 22,
-            sunrise: 1,
-            sunset: 2,
+            icon: '01d.png',
+            description: 'raining',
             loading: true,
             canLoad: true,
         };
@@ -72,15 +71,15 @@ export class Main extends React.Component {
     // kind of a hacky way to conditionally change the background color
     componentDidUpdate() {     
         let color = ''
-        if(this.state.dt > this.state.sunrise) {
+        let isDayTime = this.state.icon.includes('d');
+        if(isDayTime) {
             color = 'linear-gradient(#FDC18F, #FDB790, #FEAC8F)'
-        } else if(this.state.dt > this.state.sunset) {
-            color = 'linear-gradient(#7DB6C4, #759BB5, #6E789F)'
+        } else if(!isDayTime) {
+            color = ' linear-gradient(#7DB6C4, #6E789F, #0A2849)'
         } else {
             color = 'linear-gradient(#A08EAD, #8472A9, #6B58A3)'
         }
-                
-        document.body.style = `background: ${color};`;
+        document.body.style = `background: ${color};`; 
     }
 
     stateHandler(values) {
@@ -95,6 +94,9 @@ export class Main extends React.Component {
                 <div className='alertBox'>
                     <AlertBox 
                         temperature={this.state.temperature}
+                        icon={this.state.icon}
+                        loading = {this.state.loading}
+                        canLoad = {this.state.canLoad}
                     /> 
                 </div>
                 <div className="spacer"></div>
@@ -112,9 +114,8 @@ export class Main extends React.Component {
                                 humidity = {this.state.humidity}
                                 uvIndex = {this.state.uvIndex}
                                 windSpeed = {this.state.windSpeed}
-                                dt = {this.state.dt}
-                                sunrise = {this.state.sunrise}
-                                sunset = {this.state.sunset}
+                                icon = {this.state.icon}
+                                description = {this.state.description}
                                 loading = {this.state.loading}
                                 canLoad = {this.state.canLoad}
                                 icontype = 'fas fa-sun'

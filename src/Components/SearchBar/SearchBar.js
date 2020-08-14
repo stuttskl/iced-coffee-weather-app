@@ -85,9 +85,8 @@ export class SearchBar extends React.Component {
         windSpeed: result.wind.speed,
         hourlyData: hourlyData,
         dailyData: dailyData,
-        dt: result.dt,
-        sunset: result.sys.sunset,
-        sunrise: result.sys.sunrise,
+        icon: result.weather[0].icon,
+        description: result.weather.description,
         uvIndex: graphDataResults.current.uvi,
         loading: false,
         canLoad: true
